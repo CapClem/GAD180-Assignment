@@ -47,6 +47,7 @@ public class CameraControl : MonoBehaviour
             transform.position = initialCamPosition + (targetMidPoint - initialTargetMidPoint);
         }
 
+        transform.position = Vector3.MoveTowards(transform.position,targetMidPoint,-(Vector3.Distance(target1.position,target2.position))/3);
 
         /* To do----- 
         Zoom to keep players in view.
