@@ -5,16 +5,24 @@ using UnityEngine;
 public class Stats : MonoBehaviour
 {
     public float health;
-    public float Ammo;
-    public GameObject WeaponSlot;
-    public WeaponStats current ;
+    public bool incapacitated = false;
+    public float speed = 5;
+    public float damageReduction = 0.05f;
+    public float reviveSpeed = 2;
+    public float Ammo = 50;
+    public GameObject meleeWeaponSlot;
+    public GameObject rangedWeaponSlot;
+    //public WeaponStats current ;
+
     public enum Specialty
     {
         guns,
         bladed,
         blunt
     };
+
     public Specialty specialty;
+
     public enum CharacterType {player,zombie};
     public CharacterType characterType;
 

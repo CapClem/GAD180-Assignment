@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 5975997243777241077}
   - component: {fileID: 1288564645232374217}
   - component: {fileID: 1727313089227203319}
-  - component: {fileID: 4976375844354178983}
   m_Layer: 0
   m_Name: righteye
   m_TagString: Untagged
@@ -79,19 +78,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &4976375844354178983
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1402755823215784889}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1404484264185843736
 GameObject:
   m_ObjectHideFlags: 0
@@ -104,7 +90,7 @@ GameObject:
   m_Layer: 0
   m_Name: LookPos
   m_TagString: Untagged
-  m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -133,7 +119,6 @@ GameObject:
   - component: {fileID: 9189274485260892581}
   - component: {fileID: 8687176467276844407}
   - component: {fileID: 2307902752922468583}
-  - component: {fileID: 8394474761162096988}
   m_Layer: 0
   m_Name: pupil
   m_TagString: Untagged
@@ -200,19 +185,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &8394474761162096988
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3821899367769097205}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4553976774473054290
 GameObject:
   m_ObjectHideFlags: 0
@@ -258,6 +230,7 @@ GameObject:
   - component: {fileID: 8996281493366746102}
   - component: {fileID: 8419355449669097750}
   - component: {fileID: 6795984564423389559}
+  - component: {fileID: 8510008529803554952}
   - component: {fileID: 5339047330677448172}
   - component: {fileID: 5251351301205602828}
   - component: {fileID: 679457648977034845}
@@ -344,10 +317,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   Ammo: 0
-  WeaponSlot: {fileID: 0}
+  meleeWeaponSlot: {fileID: 0}
+  rangedWeaponSlot: {fileID: 0}
   current: {fileID: 0}
   specialty: 0
   characterType: 0
+--- !u!114 &8510008529803554952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4604516645441231756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46ae146a4114d174daef4c436b33e2e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitObj: {fileID: 0}
+  hitColliderOrigin: {x: 0, y: 0, z: 0}
+  hitDirection: {x: 0.92, y: 0, z: 0}
+  hitColliderRadius: 0.73
+  maxHitDistance: 1.18
+  hitColliderMask:
+    serializedVersion: 2
+    m_Bits: 512
+  currentHitDistance: 0
+  meleAllowed: 0
 --- !u!114 &5339047330677448172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -442,7 +438,6 @@ GameObject:
   - component: {fileID: 2046714029006784289}
   - component: {fileID: 4373988215601238896}
   - component: {fileID: 3887900973420542918}
-  - component: {fileID: 4182626717974268788}
   m_Layer: 0
   m_Name: lefteye
   m_TagString: Untagged
@@ -510,19 +505,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &4182626717974268788
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6745228026780839499}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7497569814471268286
 GameObject:
   m_ObjectHideFlags: 0
@@ -534,7 +516,6 @@ GameObject:
   - component: {fileID: 8037335037143561390}
   - component: {fileID: 8718817750580863882}
   - component: {fileID: 8738159675039251759}
-  - component: {fileID: 9120685479657005365}
   m_Layer: 0
   m_Name: nose
   m_TagString: Untagged
@@ -601,20 +582,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &9120685479657005365
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7497569814471268286}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8774420646770912163
 GameObject:
   m_ObjectHideFlags: 0
@@ -626,7 +593,6 @@ GameObject:
   - component: {fileID: 551768458105277527}
   - component: {fileID: 7979594605621667395}
   - component: {fileID: 6552122173410770072}
-  - component: {fileID: 7501294284110860758}
   m_Layer: 0
   m_Name: pupil
   m_TagString: Untagged
@@ -693,16 +659,3 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &7501294284110860758
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8774420646770912163}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}

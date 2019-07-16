@@ -11,8 +11,7 @@ GameObject:
   - component: {fileID: 6652022074019253507}
   - component: {fileID: 6582409258235328977}
   - component: {fileID: 275062571183617089}
-  - component: {fileID: 6316664553782130170}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pupil
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,19 +77,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &6316664553782130170
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1647327464216229715}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2031371776878276394
 GameObject:
   m_ObjectHideFlags: 0
@@ -107,9 +93,9 @@ GameObject:
   - component: {fileID: 2031371776878276396}
   - component: {fileID: 845731120716369370}
   - component: {fileID: 2031371776878276395}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Zombie
-  m_TagString: Player
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -234,7 +220,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   Ammo: 0
-  WeaponSlot: {fileID: 0}
+  meleeWeaponSlot: {fileID: 0}
+  rangedWeaponSlot: {fileID: 0}
   current: {fileID: 0}
   specialty: 0
   characterType: 1
@@ -269,7 +256,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4260208391066741254}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: face
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -304,8 +291,7 @@ GameObject:
   - component: {fileID: 8158665950900452179}
   - component: {fileID: 3618501664962725231}
   - component: {fileID: 3760154645359859281}
-  - component: {fileID: 7411172188719418113}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: righteye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -372,19 +358,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &7411172188719418113
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3504346268351825695}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5465925901041591064
 GameObject:
   m_ObjectHideFlags: 0
@@ -396,8 +369,7 @@ GameObject:
   - component: {fileID: 5502342122559143944}
   - component: {fileID: 6568799316130830124}
   - component: {fileID: 6526361606097193353}
-  - component: {fileID: 6720859102558573971}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: nose
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -463,20 +435,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &6720859102558573971
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5465925901041591064}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6490645523292397317
 GameObject:
   m_ObjectHideFlags: 0
@@ -488,8 +446,7 @@ GameObject:
   - component: {fileID: 2629575366893762801}
   - component: {fileID: 5578642328610099941}
   - component: {fileID: 8735776867584002110}
-  - component: {fileID: 5462749560900691312}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pupil
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -555,19 +512,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &5462749560900691312
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6490645523292397317}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &9101136610937232109
 GameObject:
   m_ObjectHideFlags: 0
@@ -579,8 +523,7 @@ GameObject:
   - component: {fileID: 4589455202032202631}
   - component: {fileID: 2262462583663011798}
   - component: {fileID: 1595118650351734624}
-  - component: {fileID: 1863868432757997522}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: lefteye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -647,16 +590,3 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &1863868432757997522
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9101136610937232109}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}

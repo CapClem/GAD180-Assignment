@@ -26,17 +26,19 @@ public class PlayerControl : MonoBehaviour
     // game components
     Rigidbody rb;
     CharacterController charCtrl;
+    Stats playerStats;
     public GameObject lookPos;
     public GameObject face;
+    public GameObject otherPlayer;
 
     //RotatedHeadings
     private Vector3 forward, right;
 
     //Movement
-    public float speed = 5;
     public float jumpSpeed = 5;
     public float stickFilter = 0;
     private Vector3 moveDir;
+    private float maxDistance = 1;
 
     //Gravity
     public float gravity = 10.0f;
@@ -51,8 +53,10 @@ public class PlayerControl : MonoBehaviour
         setUpInputs(controllerNumber, myControlScheme);
 
         //GetComponents
-        rb = this.GetComponent<Rigidbody>();
-        charCtrl = this.GetComponent<CharacterController>();
+        rb = GetComponent<Rigidbody>();
+        charCtrl = GetComponent<CharacterController>();
+        playerStats = GetComponent<Stats>();
+
         //headings
         // this is where we rotate the players directions to isometric
         forward = Quaternion.Euler(0, 45, 0) * this.transform.forward;
@@ -137,7 +141,7 @@ public class PlayerControl : MonoBehaviour
                 moveDir.y = jumpSpeed;
             }
             else if (charCtrl.isGrounded)
-            { 
+            {
                 // we change them back when back on the ground.
                 charCtrl.slopeLimit = 45;
                 charCtrl.stepOffset = 0.3f;
@@ -149,9 +153,11 @@ public class PlayerControl : MonoBehaviour
                 Vector3 verticalMovement = forward * Input.GetAxis(leftVertical);
                 Vector3 horizontalMovement = right * Input.GetAxis(leftHorizontal);
                 //moveDir=((verticalMovement + horizontalMovement) * speed);
-                charCtrl.Move(((verticalMovement + horizontalMovement) * speed) * Time.deltaTime);
+                if (Vector3.Distance(transform.position + verticalMovement + horizontalMovement, otherPlayer.transform.position) < 100)
+                { 
+                charCtrl.Move(((verticalMovement + horizontalMovement) * playerStats.speed) * Time.deltaTime);
                 // Debug.Log(" Character moved" + (verticalMovement + horizontalMovement));
-                
+                }
             }
             // Applying our own gravity.
             moveDir.y -= gravity * Time.deltaTime;
@@ -161,10 +167,14 @@ public class PlayerControl : MonoBehaviour
             // Rotating after having moved.
             if (Mathf.Abs(Input.GetAxis(rightVertical)) > stickFilter || Mathf.Abs(Input.GetAxis(rightHorizontal)) > stickFilter)
             {
-                lookPos.transform.localPosition = Quaternion.Euler(0, 45, 0) * new Vector3(Input.GetAxis(rightHorizontal), 0, Input.GetAxis(rightVertical)).normalized *3;
+                lookPos.transform.localPosition = Quaternion.Euler(0, 45, 0) * new Vector3(Input.GetAxis(rightHorizontal), 0, Input.GetAxis(rightVertical)).normalized * 3;
                 face.transform.LookAt(lookPos.transform.position); // only rotating the face because the parent object being rotated would also move the lookPos Creating a feedback loop of rotation.
             }
-            
+
         }
+    }
+    public void KnockBack(float dmg, Vector3 dir)
+    {
+        charCtrl.Move( dir * dmg *0.1f);
     }
 }
