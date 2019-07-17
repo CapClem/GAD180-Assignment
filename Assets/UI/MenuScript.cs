@@ -5,13 +5,14 @@ using UnityEngine;
 public class MenuScript : MonoBehaviour
 {
     //Menu States
-    public enum MenuStates {Main, Controls};
+    public enum MenuStates {Main, Controls, Character};
     public MenuStates currentState;
 
     //Menu panel objects
     public GameObject mainMenu;
     public GameObject controls;
-    
+    public GameObject character;
+
     //When script first starts - Starts on the Main Menu
     void Awake()
     {
@@ -26,6 +27,7 @@ public class MenuScript : MonoBehaviour
             //Case for when the Main Menu is Active
             case MenuStates.Main:
                 mainMenu.SetActive(true);
+                character.SetActive(false);
                 controls.SetActive(false);
                 break;
             
@@ -33,6 +35,14 @@ public class MenuScript : MonoBehaviour
             case MenuStates.Controls:
                 controls.SetActive(true);
                 mainMenu.SetActive(false);
+                character.SetActive(false);
+                break;
+
+            //Case for when the Character Menu is Active
+            case MenuStates.Character:
+                character.SetActive(true);
+                mainMenu.SetActive(false);
+                controls.SetActive(false);
                 break;
         }
     }
@@ -40,7 +50,8 @@ public class MenuScript : MonoBehaviour
     //When Start Game Button is pressed
     public void OnStartGame()
     {
-        Debug.Log("You pressed Start Game");
+        //Changes the menu state to the Character Menu
+        currentState = MenuStates.Character;
     }
 
     //When Controls Button is pressed
@@ -62,4 +73,5 @@ public class MenuScript : MonoBehaviour
     {
         Debug.Log("You pressed Exit");
     }
+
 }
