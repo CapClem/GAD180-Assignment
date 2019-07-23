@@ -1,17 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class MenuScript : MonoBehaviour
 {
     //Menu States
-    public enum MenuStates {Main, Controls, Character};
+    public enum MenuStates {Main, Controls, Level};
     public MenuStates currentState;
 
     //Menu panel objects
     public GameObject mainMenu;
     public GameObject controls;
-    public GameObject character;
+    public GameObject level;
 
     //When script first starts - Starts on the Main Menu
     void Awake()
@@ -26,21 +27,21 @@ public class MenuScript : MonoBehaviour
         {
             //Case for when the Main Menu is Active
             case MenuStates.Main:
+                level.SetActive(false);
                 mainMenu.SetActive(true);
-                character.SetActive(false);
                 controls.SetActive(false);
                 break;
             
             //Case for when the Controls Menu is Active
             case MenuStates.Controls:
+                level.SetActive(false);
                 controls.SetActive(true);
                 mainMenu.SetActive(false);
-                character.SetActive(false);
                 break;
 
             //Case for when the Character Menu is Active
-            case MenuStates.Character:
-                character.SetActive(true);
+            case MenuStates.Level:
+                level.SetActive(true);
                 mainMenu.SetActive(false);
                 controls.SetActive(false);
                 break;
@@ -50,8 +51,8 @@ public class MenuScript : MonoBehaviour
     //When Start Game Button is pressed
     public void OnStartGame()
     {
-        //Changes the menu state to the Character Menu
-        currentState = MenuStates.Character;
+        //Changes the menu state to the Level Select Menu
+        currentState = MenuStates.Level;
     }
 
     //When Controls Button is pressed
@@ -72,6 +73,12 @@ public class MenuScript : MonoBehaviour
     public void OnExit()
     {
         Debug.Log("You pressed Exit");
+    }
+
+    //On Level Select, will load the Level Scene 
+    public void LoadLevel(string levelName)
+    {
+        SceneManager.LoadScene(levelName);
     }
 
 }
