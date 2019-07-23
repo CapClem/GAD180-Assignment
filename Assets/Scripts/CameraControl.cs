@@ -7,20 +7,14 @@ public class CameraControl : MonoBehaviour
     public Transform target1;
     public Transform target2;
 
-    public enum CameraStyle
-    {
-        fixedPointAngleFollow,
-        fixedAngleMoveFollow
-
-    };
-    public CameraStyle cameraStyle;
-
-
-
     private Vector3 targetMidPoint;
     private Vector3 initialTargetMidPoint;
     private Vector3 initialCamPosition;
-
+    private Vector3 cameraMovePos;
+    public float maxPlayerDistance = 80;
+    public float playerDistance;
+    public float cameraSmoothing = 3;
+    private float t;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,25 +27,27 @@ public class CameraControl : MonoBehaviour
     void Update()
     {
         //The following formula is used to find the mid point between two points  A + (B - A) / 2;
+        playerDistance = Vector3.Distance(target1.position, target2.position);
 
         targetMidPoint = (target1.position + (target2.position - target1.position) / 2);
 
+        transform.position = initialCamPosition + (targetMidPoint - initialTargetMidPoint);
 
-        if (cameraStyle == CameraStyle.fixedPointAngleFollow)
+        cameraMovePos = Vector3.Lerp(transform.position,targetMidPoint +(transform.position*0.2f), map(playerDistance,0,maxPlayerDistance,1,0));
+
+        if (Vector3.Distance(cameraMovePos, transform.position) > 0.05)
         {
-            transform.LookAt(targetMidPoint);
+            t += Time.deltaTime * cameraSmoothing;
 
+            transform.position = Vector3.Lerp(transform.position, cameraMovePos, t);
         }
-        else if (cameraStyle == CameraStyle.fixedAngleMoveFollow)
+        else
         {
-            transform.position = initialCamPosition + (targetMidPoint - initialTargetMidPoint);
+            t = 0;
         }
-
-        transform.position = Vector3.MoveTowards(transform.position,targetMidPoint,-(Vector3.Distance(target1.position,target2.position))/2f);
 
         /* To do----- 
         Zoom to keep players in view.
-        this will need to zoom based on the distance between each player,
         relative to the distance between the player Mid point and the camera.
 
         Desireable.
@@ -62,5 +58,11 @@ public class CameraControl : MonoBehaviour
         and avoid obstacles between the camera and players.
          */
 
+    }
+
+    // using this to convert the distance between the players to a float from 0 to 1.
+    float map(float s, float a1, float a2, float b1, float b2)
+    {
+        return b1 + (s - a1) * (b2 - b1) / (a2 - a1);
     }
 }

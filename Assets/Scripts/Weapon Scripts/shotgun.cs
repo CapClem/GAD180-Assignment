@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Shotgun : Weapon
+public class Shotgun : RangedWeapon
 {
     public float reloadTime;
     public int ammo;

@@ -202,10 +202,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1375e370d7540994f9b0995d0bbca33b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawner: {fileID: 0}
   player1: {fileID: 0}
   player2: {fileID: 0}
   attackDamage: 4.72
   attackCoolDownMax: 0.84
+  knockBackMultiplier: 0.15
+  MaxknockBackTime: 0.3
 --- !u!114 &845731120716369370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -219,10 +222,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  incapacitated: 0
+  speed: 5
+  damageReduction: 0.5
+  reviveSpeed: 2
   Ammo: 0
   meleeWeaponSlot: {fileID: 0}
   rangedWeaponSlot: {fileID: 0}
-  current: {fileID: 0}
   specialty: 0
   characterType: 1
 --- !u!195 &2031371776878276395

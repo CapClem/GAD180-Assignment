@@ -152,11 +152,11 @@ public class PlayerControl : MonoBehaviour
             {
                 Vector3 verticalMovement = forward * Input.GetAxis(leftVertical);
                 Vector3 horizontalMovement = right * Input.GetAxis(leftHorizontal);
-                //moveDir=((verticalMovement + horizontalMovement) * speed);
+
                 if (Vector3.Distance(transform.position + verticalMovement + horizontalMovement, otherPlayer.transform.position) < 100)
                 { 
                 charCtrl.Move(((verticalMovement + horizontalMovement) * playerStats.speed) * Time.deltaTime);
-                // Debug.Log(" Character moved" + (verticalMovement + horizontalMovement));
+
                 }
             }
             // Applying our own gravity.
