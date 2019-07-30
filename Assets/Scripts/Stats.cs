@@ -20,8 +20,7 @@ public class Stats : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
-        
+    { 
     }
 
     // Update is called once per frame
@@ -30,21 +29,22 @@ public class Stats : MonoBehaviour
         
     }
 
-   public void heal()
+   public void heal(float ammount)
     {
 
     }
+
    public void TakeDamage(float damage)
     {
         health -= damage*damageReduction;
     }
 
-   public void increaseAmmo()
+   public void increaseAmmo(int ammount)
     {
 
     }
 
-   public void decreaseAmmo()
+   public void decreaseAmmo(int ammount)
     {
 
     }

@@ -90,7 +90,7 @@ GameObject:
   m_Layer: 0
   m_Name: LookPos
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -316,10 +316,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  incapacitated: 0
+  speed: 5
+  damageReduction: 0.5
+  reviveSpeed: 2
   Ammo: 0
   meleeWeaponSlot: {fileID: 0}
   rangedWeaponSlot: {fileID: 0}
-  current: {fileID: 0}
   specialty: 0
   characterType: 0
 --- !u!114 &8510008529803554952
@@ -375,7 +378,7 @@ MonoBehaviour:
   controllerNumber: 1
   lookPos: {fileID: 1404484264185843736}
   face: {fileID: 4553976774473054290}
-  speed: 5
+  otherPlayer: {fileID: 0}
   jumpSpeed: 5
   stickFilter: 0.05
   gravity: 10

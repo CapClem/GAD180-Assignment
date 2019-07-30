@@ -45,6 +45,7 @@ public class PlayerControl : MonoBehaviour
 
     private Vector3 startPos;
     //bool lastInput = false;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -146,7 +147,6 @@ public class PlayerControl : MonoBehaviour
                 charCtrl.slopeLimit = 45;
                 charCtrl.stepOffset = 0.3f;
             }
-
             // basic movement.
             if (Mathf.Abs(Input.GetAxis(leftVertical)) > stickFilter || Mathf.Abs(Input.GetAxis(leftHorizontal)) > stickFilter)
             {
@@ -154,8 +154,8 @@ public class PlayerControl : MonoBehaviour
                 Vector3 horizontalMovement = right * Input.GetAxis(leftHorizontal);
 
                 if (Vector3.Distance(transform.position + verticalMovement + horizontalMovement, otherPlayer.transform.position) < 100)
-                { 
-                charCtrl.Move(((verticalMovement + horizontalMovement) * playerStats.speed) * Time.deltaTime);
+                {
+                    charCtrl.Move(((verticalMovement + horizontalMovement) * playerStats.speed) * Time.deltaTime);
 
                 }
             }
@@ -165,14 +165,36 @@ public class PlayerControl : MonoBehaviour
             charCtrl.Move(moveDir * Time.deltaTime);
 
             // Rotating after having moved.
+            // we check to see if the sticks have been moved.
             if (Mathf.Abs(Input.GetAxis(rightVertical)) > stickFilter || Mathf.Abs(Input.GetAxis(rightHorizontal)) > stickFilter)
-            {
-                lookPos.transform.localPosition = Quaternion.Euler(0, 45, 0) * new Vector3(Input.GetAxis(rightHorizontal), 0, Input.GetAxis(rightVertical)).normalized * 3;
+             {
+                // we check to see if  the keyboard and mouse is being used, we use a different aiming method for it.
+                if (myControlScheme == ControlScheme.Keyboard)
+                {
+                    // we cast a ray
+                    RaycastHit hit;
+                    //see if it hit anything
+                    if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
+                    {
+                        // if so we move the look position to there, but at the same height as the player. so that the player doesn't lean over.
+                        lookPos.transform.position = new Vector3(hit.point.x, transform.position.y, hit.point.z);
+                    }
+                }
+                // if if its not keyboard and mouse, we just move the the look pos around the player porpotionately to the analog stick.
+                else
+                {
+                    lookPos.transform.localPosition = Quaternion.Euler(0, 45, 0) * new Vector3(Input.GetAxis(rightHorizontal), 0, Input.GetAxis(rightVertical)).normalized * 3;
+                }
+                // then after all that we make the player look at it,.. 
                 face.transform.LookAt(lookPos.transform.position); // only rotating the face because the parent object being rotated would also move the lookPos Creating a feedback loop of rotation.
+                // this will later just rotate the player.. instead but for now its this.
+
             }
 
         }
     }
+
+    // this is knockback, but for the current camera set up, it might not be great,.. it makes the camera move suddenly. maybe i need to smooth out this movement. like with a lerp or something.
     public void KnockBack(float dmg, Vector3 dir)
     {
         charCtrl.Move( dir * dmg *0.1f);
