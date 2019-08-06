@@ -8,14 +8,14 @@ public class UIManager : MonoBehaviour
     public Image pLHealthBar;
     public Image pRHealthBar;
 
-    private GameObject playerLObject;
-    private GameObject playerRObject;
+    public GameObject playerLObject;
+    public GameObject playerRObject;
 
     // Start is called before the first frame update
     void Start()
     {
-        playerLObject = GameObject.FindGameObjectWithTag("Player One");
-        playerRObject = GameObject.FindGameObjectWithTag("Player Two");
+        //playerLObject = GameObject.FindGameObjectWithTag("Player One");
+        //playerRObject = GameObject.FindGameObjectWithTag("Player Two");
     }
 
     // Update is called once per frame

@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class CombatBase : MonoBehaviour
 {
-    [HideInInspector]
-    private PlayerControl pC;
-    [HideInInspector]
+    private PlayerControl pCtrl;
     private Stats pStats;
-    [HideInInspector]
     private Stats enemyStats;
+    private CharacterMovement charMove;
     [HideInInspector]
     public Weapon currentWeapon;
     [HideInInspector]
@@ -33,25 +31,28 @@ public class CombatBase : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        pC = GetComponent<PlayerControl>();
+        pCtrl = GetComponent<PlayerControl>();
+        charMove = GetComponent<CharacterMovement>();
         pStats = GetComponent<Stats>();
         
     }
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown(pC.oButton))
-        {
-            pStats.SwitchWeapons();
-        }
+       if (Input.GetButtonDown(pCtrl.swapWeaponsButton))
+       {
+         pStats.SwitchWeapons();
+       }
 
-        if (Input.GetButton(pC.fireButton))
+        if (Input.GetButton(pCtrl.fireButton))
         {
-            if ((pStats.meleeWeaponSlot != null && pStats.selectedWeapon.GetComponent<MeleWeapon>() != null))
+            if ((pStats.meleeWeaponSlot))
             {
-
-                meleAttack(); // a local function because calling it on the mele weapon would be pointless as their is no need for mele weapons to operate differently in any significant mechanical way.
-            }
+                if (pStats.selectedWeapon.GetComponent<MeleWeapon>())
+                {
+                    meleAttack(); // a local function because calling it on the mele weapon would be pointless as their is no need for mele weapons to operate differently in any significant mechanical way.
+                }
+                }
             else
             {
                 // ranged Attacking. Just going to call the attack funcion on the ranged weapon.
@@ -60,7 +61,7 @@ public class CombatBase : MonoBehaviour
         }
 
         hitColliderOrigin = transform.position;
-        hitDirection = pC.face.transform.forward;
+        hitDirection = charMove.face.transform.forward;
     }
     void meleAttack()
     {

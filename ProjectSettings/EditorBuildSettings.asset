@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Farm Checkpoint.unity
     guid: 11eb2898daf998f428d54a27fe75a203
   - enabled: 1
-    path: Assets/Scenes/Test scene.unity
+    path: Assets/Scenes/BrokenTest scene.unity
     guid: 6d7a8d72f05c9e64d9642bcb2a893ba1
+  - enabled: 1
+    path: Assets/Scenes/TestScene.unity
+    guid: 82089a37d02b83d45af5022a5e828e3b
   m_configObjects: {}

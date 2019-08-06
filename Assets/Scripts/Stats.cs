@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Stats : MonoBehaviour
 {
-    public float currentHealth;
     public float maxHealth = 100f;
     public float healthPercent;
 
@@ -34,21 +33,30 @@ public class Stats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        healthPercent = currentHealth / maxHealth;
+        selectedWeapon = meleeWeaponSlot;
+        healthPercent = health / maxHealth;
     }
 
-   public void heal(float ammount)
+    public void heal(float ammount)
     {
-
+        // alex did this bit.
+        if (ammount + health > maxHealth)
+        {
+            health = 100;
+        }
+        else
+        {
+            health += ammount;
+        }
     }
     public void SwitchWeapons()
     {
-        if ( selectedWeapon == meleeWeaponSlot)
+        if ( selectedWeapon == meleeWeaponSlot && rangedWeaponSlot != null)
         {
             selectedWeapon.transform.SetParent(unequippedWeaponPos, false);
             selectedWeapon = rangedWeaponSlot;
         }
-        else
+        else if (selectedWeapon == rangedWeaponSlot && meleeWeaponSlot != null)
         {
             selectedWeapon.transform.SetParent(unequippedWeaponPos, false);
             selectedWeapon.transform.rotation = unequippedWeaponPos.rotation;
@@ -56,20 +64,28 @@ public class Stats : MonoBehaviour
             selectedWeapon.transform.SetParent(equippedWeaponPos, false);
             selectedWeapon.transform.rotation = unequippedWeaponPos.rotation;
         }
+        else
+        {
+            Debug.Log("No other weapon!");
+        }
     }
-   public void TakeDamage(float damage)
-    {
-        health -= damage*damageReduction;
+    public void TakeDamage(float damage)
+    { 
+        if (health > 0) 
+        { 
+            health -= damage * damageReduction;
+        }
     }
 
    public void increaseAmmo(int ammount)
     {
-
+        // alex did this bit.
+        Ammo += ammount;
     }
 
    public void decreaseAmmo(int ammount)
     {
-
+        Ammo -= ammount;
     }
 
 }

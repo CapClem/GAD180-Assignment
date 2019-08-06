@@ -15,10 +15,10 @@ MonoBehaviour:
   player: {fileID: 0}
   playerStats: {fileID: 0}
   playerControl: {fileID: 0}
-  damage: 0
+  damage: 10
   cooldown: 0
   pickUp: {fileID: 2030459996436392192, guid: aa19033dd9d94be42956239422e7a252, type: 3}
-  range: 0
+  range: 1.5
   types: 
 --- !u!1001 &6321739979041620897
 PrefabInstance:

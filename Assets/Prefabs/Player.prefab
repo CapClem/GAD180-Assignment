@@ -293,6 +293,7 @@ GameObject:
   - component: {fileID: 8419355449669097750}
   - component: {fileID: 6795984564423389559}
   - component: {fileID: 8510008529803554952}
+  - component: {fileID: 121557638849613170}
   - component: {fileID: 5339047330677448172}
   - component: {fileID: 5251351301205602828}
   - component: {fileID: 679457648977034845}
@@ -377,6 +378,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb5759664f57bf54387e7cf292a11a98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 100
+  healthPercent: 0
   health: 100
   incapacitated: 0
   speed: 5
@@ -386,6 +389,7 @@ MonoBehaviour:
   meleeWeaponSlot: {fileID: 0}
   rangedWeaponSlot: {fileID: 0}
   equippedWeaponPos: {fileID: 47225793725603345}
+  unequippedWeaponPos: {fileID: 0}
   selectedWeapon: {fileID: 0}
   specialty: 0
   characterType: 0
@@ -409,6 +413,24 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   meleAllowed: 0
+--- !u!114 &121557638849613170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4604516645441231756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8040eca9d1e3be4e82490598e6d5ba5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lookPos: {fileID: 1404484264185843736}
+  face: {fileID: 4553976774473054290}
+  otherPlayer: {fileID: 0}
+  jumpSpeed: 5
+  stickFilter: 0
+  gravity: 10
 --- !u!114 &5339047330677448172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -438,12 +460,7 @@ MonoBehaviour:
   optionButton: 
   pauseButton: 
   controllerNumber: 1
-  lookPos: {fileID: 1404484264185843736}
-  face: {fileID: 4553976774473054290}
-  otherPlayer: {fileID: 0}
-  jumpSpeed: 5
-  stickFilter: 0.05
-  gravity: 10
+  playerNumber: 1
 --- !u!136 &5251351301205602828
 CapsuleCollider:
   m_ObjectHideFlags: 0

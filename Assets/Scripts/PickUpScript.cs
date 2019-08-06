@@ -20,13 +20,19 @@ public class PickUpScript : MonoBehaviour
         switch (myType)
         {
             case PickupType.health:
-                // someone else might wanna do this, Not blaide.
+                if (Value <= 0)
+                {
+                    Value = Random.Range(15, 50);
+                }
 
                 break;
 
             case PickupType.ammo:
                 // someone else might wanna do this. Not blaide... 
-
+                if( Value <= 0)
+                {
+                    Value = Random.Range(15, 75);
+                }
                 break;
 
             case PickupType.weapon:
@@ -41,7 +47,7 @@ public class PickUpScript : MonoBehaviour
     private void Update()
     {
 
-        if (player != null && Input.GetButtonDown(pCntrl.PickupButton))
+        if (player != null && Input.GetButtonDown(pCntrl.pickupButton))
         {
             weaponPickUp();
         }
@@ -59,7 +65,8 @@ public class PickUpScript : MonoBehaviour
         weap.transform.position = pStats.equippedWeaponPos.position;
         weaponScript = weap.GetComponent<Weapon>();
         weaponScript.player = player;
-        if (weaponPrefab.GetComponent<MeleWeapon>() != null)
+
+        if (weaponPrefab.GetComponent<MeleWeapon>())
         {
             pStats.meleeWeaponSlot = weap;
         }
@@ -80,11 +87,17 @@ public class PickUpScript : MonoBehaviour
             switch (myType)
             {
                 case PickupType.health:
-                    // someone else might wanna do this, Not blaide.
-                    Destroy(gameObject);
+                    // Alex did this bit
+                    if (pStats.health < 100)
+                    {
+                        pStats.heal(Value);
+                        Destroy(gameObject);
+                    }
                     break;
                 case PickupType.ammo:
-                    // someone else might wanna do this. Not blaide... 
+                    // Alex did this bit
+                    pStats.increaseAmmo(Value);
+
                     Destroy(gameObject);
                     break;
                 case PickupType.weapon:

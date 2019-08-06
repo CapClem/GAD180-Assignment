@@ -42,6 +42,7 @@ public class ZombieControl : MonoBehaviour
         }
         else if (knockBackTime<=0)
         {
+            agent.acceleration = 5;
             agent.speed = defaultSpeed;
             agent.angularSpeed = defaultAngularSpeed;
             if (Vector3.Distance(player1.transform.position, transform.position) > Vector3.Distance(player2.transform.position, transform.position))
@@ -74,9 +75,10 @@ public class ZombieControl : MonoBehaviour
         }
         else if (knockBackTime>0)
         {
+            agent.acceleration = 20000;
+            agent.isStopped = false;
             agent.speed = KnockBackSpeed;
             agent.angularSpeed = 0;
-            agent.isStopped = false;
             knockBackTime -= Time.deltaTime;
             LookAt(target.transform);
         }
@@ -108,13 +110,13 @@ public class ZombieControl : MonoBehaviour
     {
         Stats playerStats = player.GetComponent<Stats>();
         playerStats.TakeDamage(attackDamage);
-        //player.GetComponent<PlayerControl>().KnockBack(attackDamage, transform.forward);
     }
     public void KnockBack(float dmg, Vector3 dir)
     {
         agent.destination = transform.position + (dir * dmg * knockBackMultiplier);
         knockBackTime = MaxknockBackTime;
     }
+
     void Die()
     {
         spawner.CurrentZombies.Remove(gameObject);
