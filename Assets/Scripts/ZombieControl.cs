@@ -108,7 +108,7 @@ public class ZombieControl : MonoBehaviour
     {
         Stats playerStats = player.GetComponent<Stats>();
         playerStats.TakeDamage(attackDamage);
-        player.GetComponent<PlayerControl>().KnockBack(attackDamage, transform.forward);
+        //player.GetComponent<PlayerControl>().KnockBack(attackDamage, transform.forward);
     }
     public void KnockBack(float dmg, Vector3 dir)
     {

@@ -16,6 +16,9 @@ public class Stats : MonoBehaviour
     public float Ammo = 50;
     public GameObject meleeWeaponSlot;
     public GameObject rangedWeaponSlot;
+    public Transform equippedWeaponPos;
+    public Transform unequippedWeaponPos;
+    public GameObject selectedWeapon;
     //public WeaponStats current ;
   
     public MeleWeaponType specialty;
@@ -24,7 +27,8 @@ public class Stats : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    { 
+    {
+        selectedWeapon = meleeWeaponSlot;
     }
 
     // Update is called once per frame
@@ -37,7 +41,22 @@ public class Stats : MonoBehaviour
     {
 
     }
-
+    public void SwitchWeapons()
+    {
+        if ( selectedWeapon == meleeWeaponSlot)
+        {
+            selectedWeapon.transform.SetParent(unequippedWeaponPos, false);
+            selectedWeapon = rangedWeaponSlot;
+        }
+        else
+        {
+            selectedWeapon.transform.SetParent(unequippedWeaponPos, false);
+            selectedWeapon.transform.rotation = unequippedWeaponPos.rotation;
+            selectedWeapon = meleeWeaponSlot;
+            selectedWeapon.transform.SetParent(equippedWeaponPos, false);
+            selectedWeapon.transform.rotation = unequippedWeaponPos.rotation;
+        }
+    }
    public void TakeDamage(float damage)
     {
         health -= damage*damageReduction;

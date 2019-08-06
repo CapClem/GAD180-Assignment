@@ -31,7 +31,7 @@ Transform:
   m_Children:
   - {fileID: 9189274485260892581}
   m_Father: {fileID: 1786005275025301152}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1288564645232374217
 MeshFilter:
@@ -106,6 +106,66 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6050050787383411378}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1869881870254314860
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 47225793725603345}
+  m_Layer: 0
+  m_Name: EquippedWeaponPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &47225793725603345
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1869881870254314860}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.458, y: 0.137, z: 0.314}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1786005275025301152}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2859616650701103025
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5401836449487688627}
+  m_Layer: 0
+  m_Name: UnequippedWeaponPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5401836449487688627
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2859616650701103025}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.027, y: 0.137, z: -0.509}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1786005275025301152}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3821899367769097205
@@ -212,6 +272,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 47225793725603345}
+  - {fileID: 5401836449487688627}
   - {fileID: 8037335037143561390}
   - {fileID: 5975997243777241077}
   - {fileID: 2046714029006784289}
@@ -323,6 +385,8 @@ MonoBehaviour:
   Ammo: 0
   meleeWeaponSlot: {fileID: 0}
   rangedWeaponSlot: {fileID: 0}
+  equippedWeaponPos: {fileID: 47225793725603345}
+  selectedWeapon: {fileID: 0}
   specialty: 0
   characterType: 0
 --- !u!114 &8510008529803554952
@@ -337,15 +401,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46ae146a4114d174daef4c436b33e2e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentWeapon: {fileID: 0}
   hitObj: {fileID: 0}
-  hitColliderOrigin: {x: 0, y: 0, z: 0}
-  hitDirection: {x: 0.92, y: 0, z: 0}
   hitColliderRadius: 0.73
   maxHitDistance: 1.18
   hitColliderMask:
     serializedVersion: 2
     m_Bits: 512
-  currentHitDistance: 0
   meleAllowed: 0
 --- !u!114 &5339047330677448172
 MonoBehaviour:
@@ -461,7 +523,7 @@ Transform:
   m_Children:
   - {fileID: 551768458105277527}
   m_Father: {fileID: 1786005275025301152}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4373988215601238896
 MeshFilter:
@@ -538,7 +600,7 @@ Transform:
   m_LocalScale: {x: 0.13643, y: 0.08398361, z: 0.13643005}
   m_Children: []
   m_Father: {fileID: 1786005275025301152}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 90.00001, y: 0, z: 0}
 --- !u!33 &8718817750580863882
 MeshFilter:

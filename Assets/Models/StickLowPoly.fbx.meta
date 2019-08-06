@@ -1,15 +1,14 @@
 fileFormatVersion: 2
-guid: 2d24245efdb2e714db24dcdb70fffc04
+guid: 40471ad7f6c524848b09a5e0ea82fa55
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: Wood
-    2100002: Steel
+    2100000: Material
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Shotgun
+    4300000: Stick
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -41,7 +40,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 0.3
+    globalScale: 0.03
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1

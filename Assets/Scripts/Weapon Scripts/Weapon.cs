@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
+    [HideInInspector]
     public GameObject player;
+    [HideInInspector]
     public Stats playerStats;
+    [HideInInspector]
     public PlayerControl playerControl;
     public float damage;
     public float cooldown;
-    public GameObject Model;
+    public GameObject pickUp;
 
     // public float 
     // Start is called before the first frame update
