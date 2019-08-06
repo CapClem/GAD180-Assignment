@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Stats : MonoBehaviour
 {
+    public float currentHealth;
+    public float maxHealth = 100f;
+    public float healthPercent;
+
     public float health;
     public bool incapacitated = false;
     public float speed = 5;
@@ -26,7 +30,7 @@ public class Stats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        healthPercent = currentHealth / maxHealth;
     }
 
    public void heal(float ammount)

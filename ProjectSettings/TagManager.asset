@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Zombie
+  - Player One
+  - Player Two
   layers:
   - Default
   - TransparentFX
