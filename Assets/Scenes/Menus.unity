@@ -349,6 +349,9 @@ MonoBehaviour:
   Ammo: 50
   meleeWeaponSlot: {fileID: 0}
   rangedWeaponSlot: {fileID: 0}
+  equippedWeaponPos: {fileID: 0}
+  unequippedWeaponPos: {fileID: 0}
+  selectedWeapon: {fileID: 0}
   specialty: 0
   characterType: 0
 --- !u!4 &1626270955
@@ -408,6 +411,9 @@ MonoBehaviour:
   Ammo: 50
   meleeWeaponSlot: {fileID: 0}
   rangedWeaponSlot: {fileID: 0}
+  equippedWeaponPos: {fileID: 0}
+  unequippedWeaponPos: {fileID: 0}
+  selectedWeapon: {fileID: 0}
   specialty: 0
   characterType: 0
 --- !u!4 &1779932338
@@ -442,6 +448,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 1833738463473078961, guid: c7a7c8c1eaacb864eb680b0369d454e7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1833738462821167761, guid: c7a7c8c1eaacb864eb680b0369d454e7,
         type: 3}
@@ -592,6 +603,45 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1433354559}
+    - target: {fileID: 6437305559585339257, guid: c7a7c8c1eaacb864eb680b0369d454e7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3346331660895653554, guid: c7a7c8c1eaacb864eb680b0369d454e7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1064496515, guid: c7a7c8c1eaacb864eb680b0369d454e7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1833738464154656901, guid: c7a7c8c1eaacb864eb680b0369d454e7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1644130678183663396, guid: c7a7c8c1eaacb864eb680b0369d454e7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7610973952140947002, guid: c7a7c8c1eaacb864eb680b0369d454e7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1598179569212257380, guid: c7a7c8c1eaacb864eb680b0369d454e7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3311887640243010624, guid: c7a7c8c1eaacb864eb680b0369d454e7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7a7c8c1eaacb864eb680b0369d454e7, type: 3}
 --- !u!1 &5700140296098256367 stripped

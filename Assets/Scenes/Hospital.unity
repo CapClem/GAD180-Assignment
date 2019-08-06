@@ -697,7 +697,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1613483144
+--- !u!1001 &1770703928
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -707,7 +707,7 @@ PrefabInstance:
     - target: {fileID: 1833738462821167757, guid: c7a7c8c1eaacb864eb680b0369d454e7,
         type: 3}
       propertyPath: m_Name
-      value: MainMenu
+      value: UI
       objectReference: {fileID: 0}
     - target: {fileID: 1833738462821167761, guid: c7a7c8c1eaacb864eb680b0369d454e7,
         type: 3}
