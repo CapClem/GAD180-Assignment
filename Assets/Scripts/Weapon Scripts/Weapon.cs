@@ -7,37 +7,30 @@ public class Weapon : MonoBehaviour
     [HideInInspector]
     public GameObject player;
     [HideInInspector]
-    public Stats playerStats;
+    public Stats pStats;
     [HideInInspector]
-    public PlayerControl playerControl;
+    public PlayerControl pCtrl;
     public float damage;
-    public float cooldown;
     public GameObject pickUp;
 
     // public float 
     // Start is called before the first frame update
     void Start()
     {
-        playerControl = player.GetComponent<PlayerControl>();
-        playerStats = player.GetComponent<Stats>();
+        pCtrl = player.GetComponent<PlayerControl>();
+        pStats = player.GetComponent<Stats>();
     }
-    void Attack()
-    {
 
-    }
     public void pickedUp(GameObject p)
     {
         player = p;
-        playerControl = player.GetComponent<PlayerControl>();
-        playerStats = player.GetComponent<Stats>();
+        pCtrl = player.GetComponent<PlayerControl>();
+        pStats = player.GetComponent<Stats>();
     }
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButton(playerControl.fireButton))
-        {
-            Attack();
-        }
+
 
     }
 }

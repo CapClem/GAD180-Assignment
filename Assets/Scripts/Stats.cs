@@ -12,7 +12,7 @@ public class Stats : MonoBehaviour
     public float speed = 5;
     public float damageReduction = 0.5f;
     public float reviveSpeed = 2;
-    public float Ammo = 50;
+    public int Ammo = 50;
     public GameObject meleeWeaponSlot;
     public GameObject rangedWeaponSlot;
     public Transform equippedWeaponPos;
@@ -33,7 +33,6 @@ public class Stats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        selectedWeapon = meleeWeaponSlot;
         healthPercent = health / maxHealth;
     }
 
@@ -53,16 +52,16 @@ public class Stats : MonoBehaviour
     {
         if ( selectedWeapon == meleeWeaponSlot && rangedWeaponSlot != null)
         {
-            selectedWeapon.transform.SetParent(unequippedWeaponPos, false);
+            selectedWeapon.transform.SetParent(unequippedWeaponPos,false);
             selectedWeapon = rangedWeaponSlot;
+            selectedWeapon.transform.SetParent(equippedWeaponPos,false);
         }
         else if (selectedWeapon == rangedWeaponSlot && meleeWeaponSlot != null)
         {
-            selectedWeapon.transform.SetParent(unequippedWeaponPos, false);
-            selectedWeapon.transform.rotation = unequippedWeaponPos.rotation;
+            selectedWeapon.transform.SetParent(unequippedWeaponPos,false);
             selectedWeapon = meleeWeaponSlot;
-            selectedWeapon.transform.SetParent(equippedWeaponPos, false);
-            selectedWeapon.transform.rotation = unequippedWeaponPos.rotation;
+            selectedWeapon.transform.SetParent(equippedWeaponPos,false);
+
         }
         else
         {

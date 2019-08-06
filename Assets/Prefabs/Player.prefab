@@ -389,7 +389,7 @@ MonoBehaviour:
   meleeWeaponSlot: {fileID: 0}
   rangedWeaponSlot: {fileID: 0}
   equippedWeaponPos: {fileID: 47225793725603345}
-  unequippedWeaponPos: {fileID: 0}
+  unequippedWeaponPos: {fileID: 5401836449487688627}
   selectedWeapon: {fileID: 0}
   specialty: 0
   characterType: 0
@@ -451,9 +451,9 @@ MonoBehaviour:
   dPadVertical: 
   dpadHorizontal: 
   jumpButton: 
-  oButton: 
+  swapWeaponsButton: 
   reloadButton: 
-  PickupButton: 
+  pickupButton: 
   alternateFireButton: 
   fireButton: 
   shareButton: 

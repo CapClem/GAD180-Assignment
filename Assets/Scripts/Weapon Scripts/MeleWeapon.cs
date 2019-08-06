@@ -8,6 +8,7 @@ public class MeleWeapon : Weapon
 {
     public float range;
     public List<MeleWeaponType> types;
+    public ControllerColliderHit delay;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,10 +21,5 @@ public class MeleWeapon : Weapon
     }
     void Attack()
     {
-        if (types.Contains(playerStats.specialty))
-        {
-
-        }
-
     }
 }

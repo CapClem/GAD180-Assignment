@@ -54,25 +54,63 @@ public class PickUpScript : MonoBehaviour
     }
     void weaponPickUp()
     {
-         
-        if (pStats.meleeWeaponSlot != null)
+
+        if (pStats.meleeWeaponSlot != null && weaponPrefab.GetComponent<MeleWeapon>())
         {
             Instantiate(pStats.meleeWeaponSlot.GetComponent<Weapon>().pickUp, transform.position, transform.rotation);
-            Destroy(pStats.meleeWeaponSlot);
+            
         }
-
-        GameObject weap = Instantiate(weaponPrefab, pStats.equippedWeaponPos);
-        weap.transform.position = pStats.equippedWeaponPos.position;
-        weaponScript = weap.GetComponent<Weapon>();
-        weaponScript.player = player;
+        else if ((pStats.rangedWeaponSlot != null && weaponPrefab.GetComponent<RangedWeapon>()))
+        {
+            Instantiate(pStats.rangedWeaponSlot.GetComponent<Weapon>().pickUp, transform.position, transform.rotation);
+            
+        }
 
         if (weaponPrefab.GetComponent<MeleWeapon>())
         {
-            pStats.meleeWeaponSlot = weap;
+            if (pStats.selectedWeapon.GetComponent<MeleWeapon>())
+            {
+                Destroy(pStats.meleeWeaponSlot);
+                GameObject weap = Instantiate(weaponPrefab, pStats.equippedWeaponPos);
+                weap.transform.position = pStats.equippedWeaponPos.position;
+                weaponScript = weap.GetComponent<Weapon>();
+                weaponScript.player = player;
+                pStats.meleeWeaponSlot = weap;
+                pStats.selectedWeapon = pStats.meleeWeaponSlot;
+            }
+            else
+            {
+                Destroy(pStats.meleeWeaponSlot);
+                GameObject weap = Instantiate(weaponPrefab, pStats.unequippedWeaponPos);
+                weap.transform.position = pStats.unequippedWeaponPos.position;
+                weaponScript = weap.GetComponent<Weapon>();
+                weaponScript.player = player;
+                pStats.meleeWeaponSlot = weap;
+            }
+            
         }
         else
         {
-            pStats.rangedWeaponSlot = weap;
+            if (pStats.selectedWeapon.GetComponent<RangedWeapon>())
+            {
+                Destroy(pStats.rangedWeaponSlot);
+                GameObject weap = Instantiate(weaponPrefab, pStats.equippedWeaponPos);
+                weap.transform.position = pStats.equippedWeaponPos.position;
+                weaponScript = weap.GetComponent<Weapon>();
+                weaponScript.player = player;
+                pStats.rangedWeaponSlot = weap;
+                pStats.selectedWeapon = pStats.rangedWeaponSlot;
+            }
+            else
+            {
+                Destroy(pStats.rangedWeaponSlot);
+                GameObject weap = Instantiate(weaponPrefab, pStats.unequippedWeaponPos);
+                weap.transform.position = pStats.unequippedWeaponPos.position;
+                weaponScript = weap.GetComponent<Weapon>();
+                weaponScript.player = player;
+                pStats.rangedWeaponSlot = weap;
+
+            }
         }
 
         Destroy(gameObject);

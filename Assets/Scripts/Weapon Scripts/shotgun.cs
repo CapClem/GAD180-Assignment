@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Shotgun : RangedWeapon
 {
-    public float reloadTime;
-    public int ammo;
+
     public int fragments;
     public float spread;
 
