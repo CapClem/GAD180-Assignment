@@ -26,7 +26,13 @@ public class UIManager : MonoBehaviour
 
     void GetHealth()
     {
-        pLHealthBar.fillAmount = playerLObject.GetComponent<Stats>().healthPercent;
-        pRHealthBar.fillAmount = playerRObject.GetComponent<Stats>().healthPercent;
+        if (playerLObject)
+        {
+            pLHealthBar.fillAmount = playerLObject.GetComponent<Stats>().healthPercent;
+        }
+        if (playerRObject)
+        {
+            pRHealthBar.fillAmount = playerRObject.GetComponent<Stats>().healthPercent;
+        }
     }
 }

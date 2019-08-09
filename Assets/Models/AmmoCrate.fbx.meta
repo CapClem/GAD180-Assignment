@@ -1,16 +1,38 @@
 fileFormatVersion: 2
-guid: 2d24245efdb2e714db24dcdb70fffc04
+guid: 4d49bf37d61db304ab05aaaa6b888ea1
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: Wood
-    2100002: Steel
+    2100000: Material.002
+    2100002: Material.005
+    2100004: Material.001
+    2100006: Material.004
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Shotgun
-  externalObjects: {}
+    4300000: AmmoCrate
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.001
+    second: {fileID: 2100000, guid: 7c01566689f89f64fa83854243b6b867, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.002
+    second: {fileID: 2100000, guid: d5fc46a47b98f1f4b837fb4b4dfbf716, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.004
+    second: {fileID: 2100000, guid: fb52a45add6c26a45926e7b83ef4b16c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.005
+    second: {fileID: 2100000, guid: 8039a6c9229558e4e90efd6792f3b052, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

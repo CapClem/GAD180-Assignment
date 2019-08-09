@@ -40,7 +40,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: d6add31db65c82f46b22c9a8e34ab727, type: 3}
       propertyPath: m_Name
-      value: CrowbarPickUp
+      value: CrowbarPickUp Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: d6add31db65c82f46b22c9a8e34ab727, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d6add31db65c82f46b22c9a8e34ab727, type: 3}
       propertyPath: m_LocalPosition.x

@@ -12,7 +12,9 @@ public class Stats : MonoBehaviour
     public float speed = 5;
     public float damageReduction = 0.5f;
     public float reviveSpeed = 2;
-    public int Ammo = 50;
+    public int shotgunAmmo;
+    public int pistolAmmo;
+    public int rifleAmmo;
     public GameObject meleeWeaponSlot;
     public GameObject rangedWeaponSlot;
     public Transform equippedWeaponPos;
@@ -76,15 +78,24 @@ public class Stats : MonoBehaviour
         }
     }
 
-   public void increaseAmmo(int ammount)
+    public void increaseAmmo(int ammount)
     {
         // alex did this bit.
-        Ammo += ammount;
-    }
+        switch (rangedWeaponSlot.GetComponent<RangedWeapon>().ammoType)
+        {
+            case AmmoType.pistol:
+            pistolAmmo += ammount *15;
+                break;
+            case AmmoType.shotgun:
+                shotgunAmmo += ammount*2;
+                break;
+            case AmmoType.rifle:
+                rifleAmmo += ammount *50;
+                break;
+            default:
 
-   public void decreaseAmmo(int ammount)
-    {
-        Ammo -= ammount;
-    }
+                break;
+        }
+   }
 
 }

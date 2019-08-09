@@ -11,11 +11,15 @@ public class ZombieSpawner : MonoBehaviour
 
     public Transform[] SpawnLocations;
     public int currentSpawnLocationIndex = 0;
-    public float Delay = 5.0f;
+    public float Delay = 2.0f;
     private float timeSinceSpawn =0;
-    public int maxZombies = 10;
-    public List<GameObject> CurrentZombies; 
-
+    public int maxZombies = 50;
+    public List<GameObject> currentZombies;
+    public List<GameObject> weaponDrops;
+    public GameObject medKitDrop;
+    public GameObject ammoDrop;
+    public float weaponDropChance;
+    public float utilityDropChance;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,20 +29,40 @@ public class ZombieSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (CurrentZombies.Count < maxZombies)
+        if (currentZombies.Count < maxZombies)
         {
             if (currentSpawnLocationIndex < SpawnLocations.Length)
             {
                 if (timeSinceSpawn <= 0)
                 { 
                     GameObject zomb = Instantiate(Zombie, SpawnLocations[currentSpawnLocationIndex].position, SpawnLocations[currentSpawnLocationIndex].rotation);
-                    CurrentZombies.Add(zomb);
+                    currentZombies.Add(zomb);
                     ZombieControl zCon = zomb.GetComponent<ZombieControl>();
                     zCon.player1 = PlayerOne;
                     zCon.player2 = PlayerTwo;
                     zCon.spawner = this;
+                    float curChance = Random.Range(0.0f, 1.0f);
+                    if (curChance <= weaponDropChance)
+                    {
+                        zCon.drop = weaponDrops[Mathf.RoundToInt(Random.Range(0, weaponDrops.Count - 1))];
+                    }
+                    else if (curChance <= utilityDropChance)
+                    {
+                        if (Random.Range(0, 2) <= 0)
+                        {
+                            zCon.drop = medKitDrop;
+                            zCon.drop.GetComponent<PickUpScript>().Value = Random.Range(30,75);
+                        }
+                        else
+                        {
+                            zCon.drop = ammoDrop;
+                            zCon.drop.GetComponent<PickUpScript>().Value = Random.Range(4,10);
+                        }
+
+                    }
                     currentSpawnLocationIndex += 1;
                     timeSinceSpawn = Delay;
+
                 }
 
             }

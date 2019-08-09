@@ -15,16 +15,22 @@ MonoBehaviour:
   player: {fileID: 0}
   pStats: {fileID: 0}
   pCtrl: {fileID: 0}
-  damage: 3
-  cooldown: 0
-  pickUp: {fileID: 0}
+  damage: 20
+  pickUp: {fileID: 2488566506452088998, guid: 2789193772a24dd4faad2b2e4d313a26, type: 3}
+  attackDelay: 0.5
+  canAttack: 0
+  timeUntilAttack: 0
+  range: 25
   reloadTime: 0
   fireDelay: 0
-  ammo: 0
-  clipSize: 0
-  Muzzle: {fileID: 9015665282336901471}
-  fragments: 0
-  spread: 0
+  ammo: 2
+  clipSize: 2
+  muzzle: {fileID: 9015665282336901471}
+  lineRendObj: {fileID: 1707973361899136911, guid: 9362f76125d1d914392971bcc0025fd9,
+    type: 3}
+  auto: 0
+  fragments: 8
+  spread: 0.2
 --- !u!1 &7680441492289486352
 GameObject:
   m_ObjectHideFlags: 0

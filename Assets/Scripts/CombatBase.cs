@@ -39,12 +39,18 @@ public class CombatBase : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       if (Input.GetButtonDown(pCtrl.swapWeaponsButton))
-       {
-         pStats.SwitchWeapons();
-       }
+        if (Input.GetButtonDown(pCtrl.swapWeaponsButton))
+        {
+            pStats.SwitchWeapons();
+            Debug.Log("current Selected Weapon =" + pStats.selectedWeapon.name);
+        }
 
-        if (Input.GetButton(pCtrl.fireButton))
+        if (Input.GetButtonDown(pCtrl.reloadButton) && pStats.selectedWeapon.GetComponent<RangedWeapon>())
+        {
+            pStats.selectedWeapon.GetComponent<RangedWeapon>().Reload();
+        }
+
+        if ((Input.GetButton(pCtrl.fireButton)&& (pStats.selectedWeapon.GetComponent<MeleWeapon>() || pStats.selectedWeapon.GetComponent<RangedWeapon>().auto ) ) || (Input.GetButtonDown(pCtrl.fireButton) && pStats.selectedWeapon.GetComponent<RangedWeapon>().auto == false))
         {
             if ((pStats.meleeWeaponSlot))
             {
@@ -53,9 +59,14 @@ public class CombatBase : MonoBehaviour
                     meleAttack(); // a local function because calling it on the mele weapon would be pointless as their is no need for mele weapons to operate differently in any significant mechanical way.
                 }
                 }
-            else
+            if (pStats.rangedWeaponSlot)
             {
-                // ranged Attacking. Just going to call the attack funcion on the ranged weapon.
+                if (pStats.selectedWeapon.GetComponent<RangedWeapon>())
+                {
+                    Debug.Log("Fired?");
+                    pStats.rangedWeaponSlot.GetComponent<RangedWeapon>().Attack();
+                }
+
             }
 
         }

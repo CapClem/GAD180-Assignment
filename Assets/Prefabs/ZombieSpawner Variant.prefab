@@ -1,0 +1,190 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &3381591733083788851
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1699156992700103157, guid: 6ae6a88b684423644bcc277d8d8a93eb,
+        type: 3}
+      propertyPath: m_Name
+      value: ZombieSpawner Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 1699156992700103159, guid: 6ae6a88b684423644bcc277d8d8a93eb,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.781621
+      objectReference: {fileID: 0}
+    - target: {fileID: 1699156992700103159, guid: 6ae6a88b684423644bcc277d8d8a93eb,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 1699156992700103159, guid: 6ae6a88b684423644bcc277d8d8a93eb,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.021246
+      objectReference: {fileID: 0}
+    - target: {fileID: 1699156992700103159, guid: 6ae6a88b684423644bcc277d8d8a93eb,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1699156992700103159, guid: 6ae6a88b684423644bcc277d8d8a93eb,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1699156992700103159, guid: 6ae6a88b684423644bcc277d8d8a93eb,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1699156992700103159, guid: 6ae6a88b684423644bcc277d8d8a93eb,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1699156992700103159, guid: 6ae6a88b684423644bcc277d8d8a93eb,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1699156992700103159, guid: 6ae6a88b684423644bcc277d8d8a93eb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1699156992700103159, guid: 6ae6a88b684423644bcc277d8d8a93eb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1699156992700103159, guid: 6ae6a88b684423644bcc277d8d8a93eb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1699156992700103158, guid: 6ae6a88b684423644bcc277d8d8a93eb,
+        type: 3}
+      propertyPath: drops.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1699156992700103158, guid: 6ae6a88b684423644bcc277d8d8a93eb,
+        type: 3}
+      propertyPath: weaponDrops.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1699156992700103158, guid: 6ae6a88b684423644bcc277d8d8a93eb,
+        type: 3}
+      propertyPath: PlayerOne
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1699156992700103158, guid: 6ae6a88b684423644bcc277d8d8a93eb,
+        type: 3}
+      propertyPath: PlayerTwo
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1699156992700103158, guid: 6ae6a88b684423644bcc277d8d8a93eb,
+        type: 3}
+      propertyPath: dropChance
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1699156992700103158, guid: 6ae6a88b684423644bcc277d8d8a93eb,
+        type: 3}
+      propertyPath: drops.Array.data[0]
+      value: 
+      objectReference: {fileID: 2030459996436392192, guid: aa19033dd9d94be42956239422e7a252,
+        type: 3}
+    - target: {fileID: 1699156992700103158, guid: 6ae6a88b684423644bcc277d8d8a93eb,
+        type: 3}
+      propertyPath: drops.Array.data[1]
+      value: 
+      objectReference: {fileID: 1997649337230076427, guid: f96511a5021fdc540b8da5f179e6549d,
+        type: 3}
+    - target: {fileID: 1699156992700103158, guid: 6ae6a88b684423644bcc277d8d8a93eb,
+        type: 3}
+      propertyPath: drops.Array.data[2]
+      value: 
+      objectReference: {fileID: 2488566506452088998, guid: 2789193772a24dd4faad2b2e4d313a26,
+        type: 3}
+    - target: {fileID: 1699156992700103158, guid: 6ae6a88b684423644bcc277d8d8a93eb,
+        type: 3}
+      propertyPath: drops.Array.data[3]
+      value: 
+      objectReference: {fileID: 6428111476504821690, guid: 67b8773111f9f2f45ba7f06494e16b3a,
+        type: 3}
+    - target: {fileID: 1699156992700103158, guid: 6ae6a88b684423644bcc277d8d8a93eb,
+        type: 3}
+      propertyPath: drops.Array.data[4]
+      value: 
+      objectReference: {fileID: 1492202232872135824, guid: 309f74e13b56ee24dbab86ccf04fb916,
+        type: 3}
+    - target: {fileID: 1699156992700103158, guid: 6ae6a88b684423644bcc277d8d8a93eb,
+        type: 3}
+      propertyPath: drops.Array.data[5]
+      value: 
+      objectReference: {fileID: 5764895234554435704, guid: af9f2b1b10d82ce46b6692e692a5beb5,
+        type: 3}
+    - target: {fileID: 1699156992700103158, guid: 6ae6a88b684423644bcc277d8d8a93eb,
+        type: 3}
+      propertyPath: drops.Array.data[6]
+      value: 
+      objectReference: {fileID: 4878434948093163351, guid: bc4847ca8f6d5df4b93eb58dc904abad,
+        type: 3}
+    - target: {fileID: 1699156992700103158, guid: 6ae6a88b684423644bcc277d8d8a93eb,
+        type: 3}
+      propertyPath: weaponDrops.Array.data[1]
+      value: 
+      objectReference: {fileID: 1997649337230076427, guid: f96511a5021fdc540b8da5f179e6549d,
+        type: 3}
+    - target: {fileID: 1699156992700103158, guid: 6ae6a88b684423644bcc277d8d8a93eb,
+        type: 3}
+      propertyPath: weaponDrops.Array.data[0]
+      value: 
+      objectReference: {fileID: 1492202232872135824, guid: 309f74e13b56ee24dbab86ccf04fb916,
+        type: 3}
+    - target: {fileID: 1699156992700103158, guid: 6ae6a88b684423644bcc277d8d8a93eb,
+        type: 3}
+      propertyPath: weaponDrops.Array.data[2]
+      value: 
+      objectReference: {fileID: 2030459996436392192, guid: aa19033dd9d94be42956239422e7a252,
+        type: 3}
+    - target: {fileID: 1699156992700103158, guid: 6ae6a88b684423644bcc277d8d8a93eb,
+        type: 3}
+      propertyPath: weaponDrops.Array.data[3]
+      value: 
+      objectReference: {fileID: 6428111476504821690, guid: 67b8773111f9f2f45ba7f06494e16b3a,
+        type: 3}
+    - target: {fileID: 1699156992700103158, guid: 6ae6a88b684423644bcc277d8d8a93eb,
+        type: 3}
+      propertyPath: weaponDrops.Array.data[4]
+      value: 
+      objectReference: {fileID: 2488566506452088998, guid: 2789193772a24dd4faad2b2e4d313a26,
+        type: 3}
+    - target: {fileID: 1699156992700103158, guid: 6ae6a88b684423644bcc277d8d8a93eb,
+        type: 3}
+      propertyPath: medKitDrop
+      value: 
+      objectReference: {fileID: 4878434948093163351, guid: bc4847ca8f6d5df4b93eb58dc904abad,
+        type: 3}
+    - target: {fileID: 1699156992700103158, guid: 6ae6a88b684423644bcc277d8d8a93eb,
+        type: 3}
+      propertyPath: ammoDrop
+      value: 
+      objectReference: {fileID: 5764895234554435704, guid: af9f2b1b10d82ce46b6692e692a5beb5,
+        type: 3}
+    - target: {fileID: 1699156992700103158, guid: 6ae6a88b684423644bcc277d8d8a93eb,
+        type: 3}
+      propertyPath: weaponDropChance
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 1699156992700103158, guid: 6ae6a88b684423644bcc277d8d8a93eb,
+        type: 3}
+      propertyPath: utilityDropChance
+      value: 0.2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6ae6a88b684423644bcc277d8d8a93eb, type: 3}

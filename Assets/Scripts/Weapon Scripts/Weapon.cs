@@ -12,7 +12,12 @@ public class Weapon : MonoBehaviour
     public PlayerControl pCtrl;
     public float damage;
     public GameObject pickUp;
-
+    public float attackDelay;
+    [HideInInspector]
+    public bool canAttack;
+    [HideInInspector]
+    public float timeUntilAttack;
+    public float range;
     // public float 
     // Start is called before the first frame update
     void Start()

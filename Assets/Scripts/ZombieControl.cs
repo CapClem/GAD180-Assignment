@@ -25,6 +25,7 @@ public class ZombieControl : MonoBehaviour
     public float KnockBackSpeed;
     private float defaultSpeed;
     private float defaultAngularSpeed;
+    public GameObject drop;
     void Start()
     {
         zombieStats = GetComponent<Stats>();
@@ -119,8 +120,14 @@ public class ZombieControl : MonoBehaviour
 
     void Die()
     {
-        spawner.CurrentZombies.Remove(gameObject);
+        spawner.currentZombies.Remove(gameObject);
         // We will elaborate on this later.  Plans -- make them fall over, then slowly sink them through the ground
+        if (drop != null)
+        {
+           GameObject newDrop = Instantiate(drop);
+            newDrop.transform.position = new Vector3( transform.position.x,1,transform.position.z);
+        }
+        
         Destroy(gameObject);
     }
 }

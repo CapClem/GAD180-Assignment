@@ -40,7 +40,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 40471ad7f6c524848b09a5e0ea82fa55, type: 3}
       propertyPath: m_Name
-      value: StickPickUp
+      value: StickPickUp Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 40471ad7f6c524848b09a5e0ea82fa55, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 40471ad7f6c524848b09a5e0ea82fa55, type: 3}
       propertyPath: m_LocalPosition.x

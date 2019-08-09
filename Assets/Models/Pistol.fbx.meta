@@ -1,16 +1,20 @@
 fileFormatVersion: 2
-guid: 2d24245efdb2e714db24dcdb70fffc04
+guid: b13731f7ba3ccd24a99878a8e06b0259
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: Wood
-    2100002: Steel
+    2100000: Material.001
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Shotgun
-  externalObjects: {}
+    4300000: Cube
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.001
+    second: {fileID: 2100000, guid: 68667b24f8fa70e4583c604c3ce418c8, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

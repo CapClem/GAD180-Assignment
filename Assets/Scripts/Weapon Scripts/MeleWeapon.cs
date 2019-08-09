@@ -6,7 +6,6 @@ public enum MeleWeaponType { Bladed, Blunt, Heavy, None};
 
 public class MeleWeapon : Weapon
 {
-    public float range;
     public List<MeleWeaponType> types;
     public ControllerColliderHit delay;
     // Start is called before the first frame update

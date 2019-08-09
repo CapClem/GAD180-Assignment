@@ -379,13 +379,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  healthPercent: 0
+  healthPercent: 100
   health: 100
   incapacitated: 0
   speed: 5
   damageReduction: 0.5
   reviveSpeed: 2
-  Ammo: 0
+  shotgunAmmo: 60
+  pistolAmmo: 200
+  rifleAmmo: 500
   meleeWeaponSlot: {fileID: 0}
   rangedWeaponSlot: {fileID: 0}
   equippedWeaponPos: {fileID: 47225793725603345}
