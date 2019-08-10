@@ -29,7 +29,7 @@ MonoBehaviour:
   myType: 2
   Value: 2
   cooldownValue: 3
-  weaponPrefab: {fileID: 36563379255203416, guid: c571f969f7c46ab43912f5f4966af753,
+  weaponPrefab: {fileID: 3328217697071164895, guid: f2aea8496ea7916448353054d3fbd856,
     type: 3}
 --- !u!1001 &2488566506452123142
 PrefabInstance:

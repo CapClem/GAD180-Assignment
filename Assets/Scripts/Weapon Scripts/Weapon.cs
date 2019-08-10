@@ -26,7 +26,7 @@ public class Weapon : MonoBehaviour
         pStats = player.GetComponent<Stats>();
     }
 
-    public virtual void pickedUp(GameObject p, GameObject pickUp)
+    public virtual void pickedUp(GameObject p, PickUpScript pS)
     {
         player = p;
         pCtrl = player.GetComponent<PlayerControl>();

@@ -18,7 +18,8 @@ public class Stats : MonoBehaviour
     public GameObject meleeWeaponSlot;
     public GameObject rangedWeaponSlot;
     public Transform equippedWeaponPos;
-    public Transform unequippedWeaponPos;
+    public Transform unequippedMeleWeaponPos;
+    public Transform unequippedRangedWeaponPos;
     public GameObject selectedWeapon;
     //public WeaponStats current ;
   
@@ -54,13 +55,13 @@ public class Stats : MonoBehaviour
     {
         if ( selectedWeapon == meleeWeaponSlot && rangedWeaponSlot != null)
         {
-            selectedWeapon.transform.SetParent(unequippedWeaponPos,false);
+            selectedWeapon.transform.SetParent(unequippedMeleWeaponPos,false);
             selectedWeapon = rangedWeaponSlot;
             selectedWeapon.transform.SetParent(equippedWeaponPos,false);
         }
         else if (selectedWeapon == rangedWeaponSlot && meleeWeaponSlot != null)
         {
-            selectedWeapon.transform.SetParent(unequippedWeaponPos,false);
+            selectedWeapon.transform.SetParent(unequippedRangedWeaponPos,false);
             selectedWeapon = meleeWeaponSlot;
             selectedWeapon.transform.SetParent(equippedWeaponPos,false);
 

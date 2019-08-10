@@ -60,18 +60,18 @@ public class RangedWeapon : Weapon
         }
             
     }
+    public override void pickedUp(GameObject p,PickUpScript pS)
+    {
+        base.pickedUp(p,pS);
+        ammo = pS.Value;
+    }
+
     public virtual void Attack()
     {
        // Debug.Log("Im a ranged Weapon and i just fired.");
 
     }
-   override public void pickedUp(GameObject p, GameObject pickUp)
-    {
-        player = p;
-        pCtrl = player.GetComponent<PlayerControl>();
-        pStats = player.GetComponent<Stats>();
-        ammo = pickUp.GetComponent<PickUpScript>().Value;
-    }
+
     // Update is called once per frame
     void Update()
     {
