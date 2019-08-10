@@ -8,7 +8,7 @@ public enum PickupType
 public class PickUpScript : MonoBehaviour
 {
     public PickupType myType;
-    public int Value; // to use for ammo or health i guess.
+    public int Value; 
     public int cooldownValue = 3;
     public GameObject weaponPrefab;
     private Weapon weaponScript;
@@ -57,13 +57,15 @@ public class PickUpScript : MonoBehaviour
         // Dropping Previous weapon of that type if we have one
         if (pStats.meleeWeaponSlot != null && weaponPrefab.GetComponent<MeleWeapon>())
         {
-            Instantiate(pStats.meleeWeaponSlot.GetComponent<Weapon>().pickUp, transform.position, transform.rotation);
+            GameObject newDrop = Instantiate(pStats.meleeWeaponSlot.GetComponent<MeleWeapon>().pickUp, transform.position, transform.rotation);
+            
             
         }
         else if ((pStats.rangedWeaponSlot != null && weaponPrefab.GetComponent<RangedWeapon>()))
         {
-            Instantiate(pStats.rangedWeaponSlot.GetComponent<Weapon>().pickUp, transform.position, transform.rotation);
-            
+            GameObject newDrop = Instantiate(pStats.rangedWeaponSlot.GetComponent<RangedWeapon>().pickUp, transform.position, transform.rotation);
+            PickUpScript pScript = newDrop.GetComponent<PickUpScript>();
+            pScript.Value = pStats.rangedWeaponSlot.GetComponent<RangedWeapon>().ammo;
         }
 
 
@@ -75,10 +77,11 @@ public class PickUpScript : MonoBehaviour
                 Destroy(pStats.meleeWeaponSlot);
                 GameObject weap = Instantiate(weaponPrefab, pStats.equippedWeaponPos);
                 weap.transform.position = pStats.equippedWeaponPos.position;
-                weaponScript = weap.GetComponent<Weapon>();
-                weaponScript.pickedUp(player);
+                weaponScript = weap.GetComponent<MeleWeapon>();
+                weaponScript.pickedUp(player, gameObject);
                 pStats.meleeWeaponSlot = weap;
                 pStats.selectedWeapon = pStats.meleeWeaponSlot;
+               
                 
             }
             else
@@ -86,8 +89,8 @@ public class PickUpScript : MonoBehaviour
                 Destroy(pStats.meleeWeaponSlot);
                 GameObject weap = Instantiate(weaponPrefab, pStats.unequippedWeaponPos);
                 weap.transform.position = pStats.unequippedWeaponPos.position;
-                weaponScript = weap.GetComponent<Weapon>();
-                weaponScript.pickedUp(player);
+                weaponScript = weap.GetComponent<MeleWeapon>();
+                weaponScript.pickedUp(player, gameObject);
                 pStats.meleeWeaponSlot = weap;
             }
             
@@ -99,8 +102,8 @@ public class PickUpScript : MonoBehaviour
                 Destroy(pStats.rangedWeaponSlot);
                 GameObject weap = Instantiate(weaponPrefab, pStats.equippedWeaponPos);
                 weap.transform.position = pStats.equippedWeaponPos.position;
-                weaponScript = weap.GetComponent<Weapon>();
-                weaponScript.pickedUp(player);
+                weaponScript = weap.GetComponent<RangedWeapon>();
+                weaponScript.pickedUp(player,gameObject);
                 pStats.rangedWeaponSlot = weap;
                 pStats.selectedWeapon = pStats.rangedWeaponSlot;
             }
@@ -110,8 +113,8 @@ public class PickUpScript : MonoBehaviour
                 Destroy(pStats.rangedWeaponSlot);
                 GameObject weap = Instantiate(weaponPrefab, pStats.unequippedWeaponPos);
                 weap.transform.position = pStats.unequippedWeaponPos.position;
-                weaponScript = weap.GetComponent<Weapon>();
-                weaponScript.pickedUp(player);
+                weaponScript = weap.GetComponent<RangedWeapon>();
+                weaponScript.pickedUp(player, gameObject);
                 pStats.rangedWeaponSlot = weap;
 
             }

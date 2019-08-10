@@ -65,6 +65,13 @@ public class RangedWeapon : Weapon
        // Debug.Log("Im a ranged Weapon and i just fired.");
 
     }
+   override public void pickedUp(GameObject p, GameObject pickUp)
+    {
+        player = p;
+        pCtrl = player.GetComponent<PlayerControl>();
+        pStats = player.GetComponent<Stats>();
+        ammo = pickUp.GetComponent<PickUpScript>().Value;
+    }
     // Update is called once per frame
     void Update()
     {

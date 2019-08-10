@@ -92,7 +92,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myType: 2
-  Value: 0
+  Value: 15
   cooldownValue: 3
   weaponPrefab: {fileID: 8922425692758198810, guid: aaad87d5611cdb542ace563db178739d,
     type: 3}
