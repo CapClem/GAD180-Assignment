@@ -48,7 +48,7 @@ public class ZombieSpawner : MonoBehaviour
                     }
                     else if (curChance <= utilityDropChance)
                     {
-                        if (Random.Range(0, 2) <= 0)
+                        if (Random.Range(0, 3) <= 0)
                         {
                             zCon.drop = medKitDrop;
                             zCon.drop.GetComponent<PickUpScript>().Value = Random.Range(30,75);
@@ -56,7 +56,7 @@ public class ZombieSpawner : MonoBehaviour
                         else
                         {
                             zCon.drop = ammoDrop;
-                            zCon.drop.GetComponent<PickUpScript>().Value = Random.Range(4,10);
+                            zCon.drop.GetComponent<PickUpScript>().Value = Random.Range(10,40);
                         }
 
                     }

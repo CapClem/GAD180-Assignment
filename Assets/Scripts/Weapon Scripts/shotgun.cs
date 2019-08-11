@@ -39,7 +39,7 @@ public class Shotgun : RangedWeapon
                     {
                         if (hit.collider.gameObject.GetComponent<Stats>().characterType == Stats.CharacterType.zombie)
                         {
-                            hit.collider.gameObject.GetComponent<Stats>().TakeDamage(damage);
+                            hit.collider.gameObject.GetComponent<Stats>().TakeDamage(damage,pStats);
                         }
                     }
 

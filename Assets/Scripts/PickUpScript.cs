@@ -54,9 +54,9 @@ public class PickUpScript : MonoBehaviour
     void weaponPickUp()
     {
         // Dropping Previous weapon of that type if we have one
-        if (pStats.meleeWeaponSlot != null && weaponPrefab.GetComponent<MeleWeapon>())
+        if (pStats.meleWeaponSlot != null && weaponPrefab.GetComponent<MeleWeapon>())
         {
-            GameObject newDrop = Instantiate(pStats.meleeWeaponSlot.GetComponent<MeleWeapon>().pickUp, transform.position, transform.rotation);
+            GameObject newDrop = Instantiate(pStats.meleWeaponSlot.GetComponent<MeleWeapon>().pickUp, transform.position, transform.rotation);
             
             
         }
@@ -74,23 +74,23 @@ public class PickUpScript : MonoBehaviour
             
             if (pStats.selectedWeapon.GetComponent<MeleWeapon>())
             {
-                Destroy(pStats.meleeWeaponSlot);
+                Destroy(pStats.meleWeaponSlot);
                 GameObject weap = Instantiate(weaponPrefab, pStats.equippedWeaponPos);
                 weap.transform.position = pStats.equippedWeaponPos.position;
                 MeleWeapon meleWeaponScript = weap.GetComponent<MeleWeapon>();
-                pStats.meleeWeaponSlot = weap;
-                pStats.selectedWeapon = pStats.meleeWeaponSlot;
+                pStats.meleWeaponSlot = weap;
+                pStats.selectedWeapon = pStats.meleWeaponSlot;
                 meleWeaponScript.pickedUp(player,this);
 
             }
             else
             {
-                Destroy(pStats.meleeWeaponSlot);
+                Destroy(pStats.meleWeaponSlot);
                 GameObject weap = Instantiate(weaponPrefab, pStats.unequippedMeleWeaponPos);
                 weap.transform.position = pStats.unequippedMeleWeaponPos.position;
                 MeleWeapon meleWeaponScript = weap.GetComponent<MeleWeapon>();
                 meleWeaponScript.pickedUp(player,this);
-                pStats.meleeWeaponSlot = weap;
+                pStats.meleWeaponSlot = weap;
             }
             
         }

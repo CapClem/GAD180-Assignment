@@ -18,6 +18,7 @@ public class Weapon : MonoBehaviour
     [HideInInspector]
     public float timeUntilAttack;
     public float range;
+    public Sprite Icon;
     // public float 
     // Start is called before the first frame update
     void Start()

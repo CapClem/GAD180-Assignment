@@ -39,44 +39,45 @@ public class CombatBase : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown(pCtrl.swapWeaponsButton))
-        {
-            pStats.SwitchWeapons();
-            Debug.Log("current Selected Weapon =" + pStats.selectedWeapon.name);
-        }
-
-        if (Input.GetButtonDown(pCtrl.reloadButton) && pStats.selectedWeapon.GetComponent<RangedWeapon>())
-        {
-            pStats.selectedWeapon.GetComponent<RangedWeapon>().Reload();
-        }
-
-        if ((Input.GetButton(pCtrl.fireButton)&& (pStats.selectedWeapon.GetComponent<MeleWeapon>() || pStats.selectedWeapon.GetComponent<RangedWeapon>().auto ) ) || (Input.GetButtonDown(pCtrl.fireButton) && pStats.selectedWeapon.GetComponent<RangedWeapon>().auto == false))
-        {
-            if ((pStats.meleeWeaponSlot))
+        if (!pStats.incapacitated) {
+            if (Input.GetButtonDown(pCtrl.swapWeaponsButton))
             {
-                if (pStats.selectedWeapon.GetComponent<MeleWeapon>())
-                {
-                    meleAttack(); // a local function because calling it on the mele weapon would be pointless as their is no need for mele weapons to operate differently in any significant mechanical way.
-                }
-                }
-            if (pStats.rangedWeaponSlot)
+                pStats.SwitchWeapons();
+                Debug.Log("current Selected Weapon =" + pStats.selectedWeapon.name);
+            }
+
+            if (Input.GetButtonDown(pCtrl.reloadButton) && pStats.selectedWeapon.GetComponent<RangedWeapon>())
             {
-                if (pStats.selectedWeapon.GetComponent<RangedWeapon>())
+                pStats.selectedWeapon.GetComponent<RangedWeapon>().Reload();
+            }
+
+            if ((Input.GetButton(pCtrl.fireButton) && (pStats.selectedWeapon.GetComponent<MeleWeapon>() || pStats.selectedWeapon.GetComponent<RangedWeapon>().auto)) || (Input.GetButtonDown(pCtrl.fireButton) && pStats.selectedWeapon.GetComponent<RangedWeapon>().auto == false))
+            {
+                if ((pStats.meleWeaponSlot))
                 {
-                    Debug.Log("Fired?");
-                    pStats.rangedWeaponSlot.GetComponent<RangedWeapon>().Attack();
+                    if (pStats.selectedWeapon.GetComponent<MeleWeapon>())
+                    {
+                        meleAttack(); // a local function because calling it on the mele weapon would be pointless as their is no need for mele weapons to operate differently in any significant mechanical way.
+                    }
+                }
+                if (pStats.rangedWeaponSlot)
+                {
+                    if (pStats.selectedWeapon.GetComponent<RangedWeapon>())
+                    {
+                        Debug.Log("Fired?");
+                        pStats.rangedWeaponSlot.GetComponent<RangedWeapon>().Attack();
+                    }
+
                 }
 
             }
-
         }
-
         hitColliderOrigin = transform.position;
         hitDirection = charMove.face.transform.forward;
     }
     void meleAttack()
     {
-        meleWeap = pStats.meleeWeaponSlot.GetComponent<MeleWeapon>();
+        meleWeap = pStats.meleWeaponSlot.GetComponent<MeleWeapon>();
         maxHitDistance = meleWeap.range;
         damage = meleWeap.damage;
 
@@ -90,7 +91,7 @@ public class CombatBase : MonoBehaviour
             enemyStats = hitObj.GetComponent<Stats>();
             if (enemyStats.characterType == Stats.CharacterType.zombie)
             {
-                enemyStats.TakeDamage(damage);
+                enemyStats.TakeDamage(damage,pStats);
                 hitObj.GetComponent<ZombieControl>().KnockBack(damage,hitDirection);
                 Debug.Log( hitObj.name +" got hit for " + damage + " damage.");
             }

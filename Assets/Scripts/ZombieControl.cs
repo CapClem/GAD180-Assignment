@@ -46,31 +46,49 @@ public class ZombieControl : MonoBehaviour
             agent.acceleration = 5;
             agent.speed = defaultSpeed;
             agent.angularSpeed = defaultAngularSpeed;
-            if (Vector3.Distance(player1.transform.position, transform.position) > Vector3.Distance(player2.transform.position, transform.position))
+            if (player1.GetComponent<Stats>().incapacitated == false && player2.GetComponent<Stats>().incapacitated == false)
+            {
+                if (Vector3.Distance(player1.transform.position, transform.position) > Vector3.Distance(player2.transform.position, transform.position))
+                {
+                    target = player2;
+                }
+                else
+                {
+                    target = player1;
+                }
+
+            }
+            else if (player1.GetComponent<Stats>().incapacitated)
             {
                 target = player2;
             }
-            else
+            else if (player2.GetComponent<Stats>().incapacitated)
             {
                 target = player1;
+            }
+            else
+            {
+
             }
             agent.destination = target.transform.position;
             agent.autoTraverseOffMeshLink = true;
 
+
+
             if (Vector3.Distance(transform.position, target.transform.position) <= 1.8f)
-            {
-                agent.isStopped = true;
-                LookAt(target.transform);
-                if (attackCoolDown <= 0)
                 {
-                    Attack(target);
-                    attackCoolDown = attackCoolDownMax;
+                    agent.isStopped = true;
+                    LookAt(target.transform);
+                    if (attackCoolDown <= 0)
+                    {
+                        Attack(target);
+                        attackCoolDown = attackCoolDownMax;
+                    }
                 }
-            }
-            else
-            {
-                agent.isStopped = false;
-            }
+                else
+                {
+                    agent.isStopped = false;
+                }
 
 
         }
@@ -110,7 +128,7 @@ public class ZombieControl : MonoBehaviour
     void Attack( GameObject player)
     {
         Stats playerStats = player.GetComponent<Stats>();
-        playerStats.TakeDamage(attackDamage);
+        playerStats.TakeDamage(attackDamage,zombieStats);
     }
     public void KnockBack(float dmg, Vector3 dir)
     {
@@ -127,7 +145,7 @@ public class ZombieControl : MonoBehaviour
            GameObject newDrop = Instantiate(drop);
             newDrop.transform.position = new Vector3( transform.position.x,1,transform.position.z);
         }
-        
+        zombieStats.lastHitter.Kills += 1;
         Destroy(gameObject);
     }
 }

@@ -15,12 +15,16 @@ public class Stats : MonoBehaviour
     public int shotgunAmmo;
     public int pistolAmmo;
     public int rifleAmmo;
-    public GameObject meleeWeaponSlot;
+    public GameObject meleWeaponSlot;
     public GameObject rangedWeaponSlot;
     public Transform equippedWeaponPos;
     public Transform unequippedMeleWeaponPos;
     public Transform unequippedRangedWeaponPos;
     public GameObject selectedWeapon;
+    public GameObject playerModel;
+    public int Kills;
+    public Stats lastHitter;
+
     //public WeaponStats current ;
   
     public MeleWeaponType specialty;
@@ -30,13 +34,20 @@ public class Stats : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        selectedWeapon = meleeWeaponSlot;
+        selectedWeapon = meleWeaponSlot;
     }
+    void SetPlayerModel()
+    {
 
+    }
     // Update is called once per frame
     void Update()
     {
         healthPercent = health / maxHealth;
+        if (health <= 0)
+        {
+            incapacitated = true;
+        }
     }
 
     public void heal(float ammount)
@@ -51,18 +62,27 @@ public class Stats : MonoBehaviour
             health += ammount;
         }
     }
+    public void Revive()
+    {
+        incapacitated = false;
+        health = 25;
+    }
+    public void Knockdown()
+    {
+        incapacitated = true;
+    }
     public void SwitchWeapons()
     {
-        if ( selectedWeapon == meleeWeaponSlot && rangedWeaponSlot != null)
+        if ( selectedWeapon == meleWeaponSlot && rangedWeaponSlot != null)
         {
             selectedWeapon.transform.SetParent(unequippedMeleWeaponPos,false);
             selectedWeapon = rangedWeaponSlot;
             selectedWeapon.transform.SetParent(equippedWeaponPos,false);
         }
-        else if (selectedWeapon == rangedWeaponSlot && meleeWeaponSlot != null)
+        else if (selectedWeapon == rangedWeaponSlot && meleWeaponSlot != null)
         {
             selectedWeapon.transform.SetParent(unequippedRangedWeaponPos,false);
-            selectedWeapon = meleeWeaponSlot;
+            selectedWeapon = meleWeaponSlot;
             selectedWeapon.transform.SetParent(equippedWeaponPos,false);
 
         }
@@ -71,12 +91,17 @@ public class Stats : MonoBehaviour
             Debug.Log("No other weapon!");
         }
     }
-    public void TakeDamage(float damage)
+    public void TakeDamage(float damage, Stats eStats)
     { 
         if (health > 0) 
         { 
             health -= damage * damageReduction;
         }
+        if (health < 0)
+        {
+            health = 0;
+        }
+        lastHitter = eStats;
     }
 
     public void increaseAmmo(int ammount)

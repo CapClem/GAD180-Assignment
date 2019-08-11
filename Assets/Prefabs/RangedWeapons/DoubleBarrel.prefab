@@ -131,6 +131,7 @@ MonoBehaviour:
   canAttack: 0
   timeUntilAttack: 0
   range: 25
+  Icon: {fileID: 21300000, guid: d874bddd9effa664eb834bb21a815b89, type: 3}
   reloadTime: 0
   ammo: 2
   clipSize: 2
