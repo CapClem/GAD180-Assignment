@@ -2636,6 +2636,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
+    - target: {fileID: 1833738463473078961, guid: c7a7c8c1eaacb864eb680b0369d454e7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1833738462821167761, guid: c7a7c8c1eaacb864eb680b0369d454e7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2739,6 +2744,11 @@ PrefabInstance:
     - target: {fileID: 1833738462821167761, guid: c7a7c8c1eaacb864eb680b0369d454e7,
         type: 3}
       propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3346331660895653554, guid: c7a7c8c1eaacb864eb680b0369d454e7,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

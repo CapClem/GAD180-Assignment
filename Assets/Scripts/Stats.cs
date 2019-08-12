@@ -106,7 +106,7 @@ public class Stats : MonoBehaviour
 
     public void increaseAmmo(int ammount)
     {
-        // alex did this bit.
+        // alex did this bit initially, But blaide modified it.
         switch (rangedWeaponSlot.GetComponent<RangedWeapon>().ammoType)
         {
             case AmmoType.pistol:

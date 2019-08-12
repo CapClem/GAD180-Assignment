@@ -243,6 +243,8 @@ MonoBehaviour:
   unequippedRangedWeaponPos: {fileID: 5401836449487688627}
   selectedWeapon: {fileID: 0}
   playerModel: {fileID: 0}
+  Kills: 0
+  lastHitter: {fileID: 0}
   specialty: 0
   characterType: 0
 --- !u!114 &121557638849613170
@@ -261,7 +263,7 @@ MonoBehaviour:
   face: {fileID: 4553976774473054290}
   otherPlayer: {fileID: 0}
   jumpSpeed: 5
-  stickFilter: 0
+  stickFilter: 0.1
   gravity: 10
 --- !u!114 &5339047330677448172
 MonoBehaviour:
