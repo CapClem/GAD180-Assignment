@@ -22,6 +22,8 @@ public class Stats : MonoBehaviour
     public Transform unequippedRangedWeaponPos;
     public GameObject selectedWeapon;
     public GameObject playerModel;
+    public GameObject[] playerModels;
+    public CharacterMovement cMove;
     public int Kills;
     public Stats lastHitter;
 
@@ -34,7 +36,12 @@ public class Stats : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        selectedWeapon = meleWeaponSlot;
+        if(characterType == CharacterType.player)
+        {
+            selectedWeapon = meleWeaponSlot;
+            cMove = GetComponent<CharacterMovement>();
+        }
+
     }
     void SetPlayerModel()
     {
@@ -61,6 +68,12 @@ public class Stats : MonoBehaviour
         {
             health += ammount;
         }
+    }
+    public void setPlayerModel(int pModel)
+    {
+        //Could do it this way..
+        playerModel = Instantiate(playerModels[pModel - 1], cMove.face.transform);
+        playerModel.transform.position = new Vector3(playerModel.transform.position.x, playerModel.transform.position.y-1, playerModel.transform.position.z);
     }
     public void Revive()
     {
@@ -104,24 +117,39 @@ public class Stats : MonoBehaviour
         lastHitter = eStats;
     }
 
-    public void increaseAmmo(int ammount)
+    public bool increaseAmmo(int ammount)
     {
         // alex did this bit initially, But blaide modified it.
-        switch (rangedWeaponSlot.GetComponent<RangedWeapon>().ammoType)
+        bool x = false;
+        if(pistolAmmo < 400)
         {
-            case AmmoType.pistol:
-            pistolAmmo += ammount *15;
-                break;
-            case AmmoType.shotgun:
-                shotgunAmmo += ammount*2;
-                break;
-            case AmmoType.rifle:
-                rifleAmmo += ammount *50;
-                break;
-            default:
-
-                break;
+           pistolAmmo += ammount *15;
+            if (pistolAmmo > 400)
+            {
+                pistolAmmo = 400;
+            }
+            x = true;
         }
+        if (shotgunAmmo < 200 )
+
+        {
+            shotgunAmmo += ammount * 2;
+            if (shotgunAmmo > 200)
+            {
+                shotgunAmmo = 200;
+            }
+            x = true;
+        }
+        if (rifleAmmo < 400)
+        {
+            rifleAmmo += ammount *50;
+            if (rifleAmmo > 400)
+            {
+                rifleAmmo = 400;
+            }
+            x = true;
+        }
+        return x;
    }
 
 }

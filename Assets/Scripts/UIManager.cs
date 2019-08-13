@@ -108,14 +108,17 @@ public class UIManager : MonoBehaviour
     }
     void GetScore()
     {
-        if (playerLObject)
+       /* if (playerLObject)
         {
             pLKills.text = playerLObject.GetComponent<Stats>().Kills.ToString();
         }
         if (playerRObject)
         {
              pRKills.text = playerRObject.GetComponent<Stats>().Kills.ToString();
+        }*/
+        if (playerRObject && playerLObject)
+        {
+            totalKills.text = (playerLObject.GetComponent<Stats>().Kills + playerRObject.GetComponent<Stats>().Kills).ToString();
         }
-        totalKills.text = (playerLObject.GetComponent<Stats>().Kills + playerRObject.GetComponent<Stats>().Kills).ToString();
     }
 }

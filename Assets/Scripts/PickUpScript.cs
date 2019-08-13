@@ -14,6 +14,8 @@ public class PickUpScript : MonoBehaviour
     private GameObject player;
     private Stats pStats;
     private PlayerControl pCntrl;
+    private bool bounceDir = false;
+    private float curBouncePercent = 0, maxBounceHeight = 1.3f, minBounceHeight = 1,ramp=0;
     private void Start()
     {
         switch (myType)
@@ -45,6 +47,48 @@ public class PickUpScript : MonoBehaviour
     }
     private void Update()
     {
+        transform.Rotate(new Vector3(0, 20* Time.deltaTime, 0),Space.World);
+        if (bounceDir)
+        {
+            if (curBouncePercent <= 0.5f)
+            {
+                ramp += 30 * Time.deltaTime;
+            }
+            else
+            {
+                ramp -= 30 * Time.deltaTime;
+            }
+
+
+            
+            curBouncePercent += 0.2f * Time.deltaTime *ramp;
+            
+            if (curBouncePercent >= 1.0f)
+            {
+                bounceDir = false;
+                ramp = 0.01f;
+            }
+        }
+        else
+        {
+            if (curBouncePercent >= 0.5f)
+            {
+                ramp += 30 * Time.deltaTime;
+            }
+            else
+            {
+                ramp -= 30 * Time.deltaTime;
+            }
+
+            curBouncePercent -= 0.2f * Time.deltaTime * ramp;
+            if (curBouncePercent <= 0)
+            {
+                bounceDir = true;
+                ramp = 0.01f;
+            }
+        }
+        transform.position =  new Vector3 (transform.position.x,Mathf.Lerp(minBounceHeight,maxBounceHeight,curBouncePercent),transform.position.z);
+
 
         if (player != null && Input.GetButtonDown(pCntrl.pickupButton))
         {
@@ -143,9 +187,12 @@ public class PickUpScript : MonoBehaviour
                     break;
                 case PickupType.ammo:
                     // Alex did this bit
-                    pStats.increaseAmmo(Value);
+                    if (pStats.increaseAmmo(Value))
+                    {
+                        Destroy(gameObject);
+                    }
 
-                    Destroy(gameObject);
+
                     break;
                 case PickupType.weapon:
                     

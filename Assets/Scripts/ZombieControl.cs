@@ -75,7 +75,7 @@ public class ZombieControl : MonoBehaviour
 
 
 
-            if (Vector3.Distance(transform.position, target.transform.position) <= 1.8f)
+            if (Vector3.Distance(transform.position, target.transform.position) <= 1.8f || Vector3.Distance(transform.position + new Vector3(0,2,0), target.transform.position) <= 1.8f)
                 {
                     agent.isStopped = true;
                     LookAt(target.transform);
@@ -138,7 +138,9 @@ public class ZombieControl : MonoBehaviour
 
     void Die()
     {
+
         spawner.currentZombies.Remove(gameObject);
+        spawner.IncreaseSpawnRate(0.02f);
         // We will elaborate on this later.  Plans -- make them fall over, then slowly sink them through the ground
         if (drop != null)
         {

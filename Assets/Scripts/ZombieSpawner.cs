@@ -13,7 +13,7 @@ public class ZombieSpawner : MonoBehaviour
     public int currentSpawnLocationIndex = 0;
     public float Delay = 2.0f;
     private float timeSinceSpawn =0;
-    public int maxZombies = 50;
+    public int maxZombies = 150;
     public List<GameObject> currentZombies;
     public List<GameObject> weaponDrops;
     public GameObject medKitDrop;
@@ -25,7 +25,13 @@ public class ZombieSpawner : MonoBehaviour
     {
 
     }
-
+    public void IncreaseSpawnRate(float f)
+    {
+        if (Delay > 0.001)
+        {
+            Delay -= f;
+        }
+    }
     // Update is called once per frame
     void Update()
     {
