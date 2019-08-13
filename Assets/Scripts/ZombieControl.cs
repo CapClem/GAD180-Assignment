@@ -140,7 +140,6 @@ public class ZombieControl : MonoBehaviour
     {
 
         spawner.currentZombies.Remove(gameObject);
-        spawner.IncreaseSpawnRate(0.02f);
         // We will elaborate on this later.  Plans -- make them fall over, then slowly sink them through the ground
         if (drop != null)
         {

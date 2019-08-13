@@ -13,11 +13,9 @@ public class UIManager : MonoBehaviour
     public Image pRMele;
     public GameObject playerLObject;
     public GameObject playerRObject;
-    public Text pLAmmo;
-    public Text pRAmmo;
-    public Text pLKills;
-    public Text pRKills;
-    public Text totalKills;
+    public Text pLAmmo, pRAmmo, totalKills, round;
+   
+    public ZombieSpawner zSpawner;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +30,7 @@ public class UIManager : MonoBehaviour
         GetAmmo();
         GetWeaponIcons();
         GetScore();
+        GetRound();
     }
 
     void GetHealth()
@@ -108,17 +107,20 @@ public class UIManager : MonoBehaviour
     }
     void GetScore()
     {
-       /* if (playerLObject)
-        {
-            pLKills.text = playerLObject.GetComponent<Stats>().Kills.ToString();
-        }
-        if (playerRObject)
-        {
-             pRKills.text = playerRObject.GetComponent<Stats>().Kills.ToString();
-        }*/
         if (playerRObject && playerLObject)
         {
             totalKills.text = (playerLObject.GetComponent<Stats>().Kills + playerRObject.GetComponent<Stats>().Kills).ToString();
+        }
+    }
+    void GetRound()
+    {
+        if (zSpawner == null && FindObjectOfType<ZombieSpawner>())
+        {
+            zSpawner = FindObjectOfType<ZombieSpawner>();
+        }
+        if (zSpawner != null)
+        {
+            round.text = "Round: " + zSpawner.roundCounter.ToString();
         }
     }
 }

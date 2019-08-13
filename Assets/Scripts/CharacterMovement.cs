@@ -97,8 +97,9 @@ public class CharacterMovement : MonoBehaviour
                     {
                         // we cast a ray
                         RaycastHit hit;
+                        int mask = (1 << 10);
                         //see if it hit anything
-                        if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
+                        if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100,mask))
                         {
                             // if so we move the look position to there, but at the same height as the player. so that the player doesn't lean over.
                             lookPos.transform.position = new Vector3(hit.point.x, transform.position.y, hit.point.z);

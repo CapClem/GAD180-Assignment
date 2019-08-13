@@ -77,8 +77,11 @@ public class Stats : MonoBehaviour
     }
     public void Revive()
     {
-        incapacitated = false;
-        health = 25;
+        if (incapacitated == true)
+        {
+            incapacitated = false;
+            health = 25;
+        }
     }
     public void Knockdown()
     {

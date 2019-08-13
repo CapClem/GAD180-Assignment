@@ -33,19 +33,21 @@ public class PlayerControl : MonoBehaviour
             charMove.enabled = true;
         }
 
-        zSpawner = FindObjectOfType<ZombieSpawner>();
-        uiMan = FindObjectOfType<UIManager>();
-        if (playerNumber == 1)
+        if (FindObjectOfType<ZombieSpawner>() && FindObjectOfType<UIManager>())
         {
-            zSpawner.PlayerOne = gameObject;
-            uiMan.playerLObject = gameObject;
+            zSpawner = FindObjectOfType<ZombieSpawner>();
+            uiMan = FindObjectOfType<UIManager>();
+            if (playerNumber == 1)
+            {
+                zSpawner.PlayerOne = gameObject;
+                uiMan.playerLObject = gameObject;
+            }
+            else
+            {
+                zSpawner.PlayerTwo = gameObject;
+                uiMan.playerRObject = gameObject;
+            }
         }
-        else
-        {
-            zSpawner.PlayerTwo = gameObject;
-            uiMan.playerRObject = gameObject;
-        }
-
     }
 
     ZombieSpawner zSpawner;
@@ -166,9 +168,6 @@ public class PlayerControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (SceneManager.GetActiveScene().name == "Hospital" || SceneManager.GetActiveScene().name == "Farm Checkpoint")
-        {
-         
-        }
+        
     }
 }

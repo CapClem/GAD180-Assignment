@@ -11,7 +11,8 @@ public class ZombieSpawner : MonoBehaviour
 
     public Transform[] SpawnLocations;
     public int currentSpawnLocationIndex = 0;
-    public float Delay = 2.0f;
+    public float delay = 2.0f;
+    public float roundDelay;
     private float timeSinceSpawn =0;
     public int maxZombies = 150;
     public List<GameObject> currentZombies;
@@ -20,64 +21,79 @@ public class ZombieSpawner : MonoBehaviour
     public GameObject ammoDrop;
     public float weaponDropChance;
     public float utilityDropChance;
+    public int roundCounter = 1;
+    public int baseZombiesPerRound;
+    public int zombiesThisRound = 0;
     // Start is called before the first frame update
     void Start()
     {
 
     }
-    public void IncreaseSpawnRate(float f)
+    // Update is called once per frame
+    void SpawnZombie()
     {
-        if (Delay > 0.001)
+
+        GameObject zomb = Instantiate(Zombie, SpawnLocations[currentSpawnLocationIndex].position, SpawnLocations[currentSpawnLocationIndex].rotation);
+        currentZombies.Add(zomb);
+        ZombieControl zCon = zomb.GetComponent<ZombieControl>();
+        zCon.player1 = PlayerOne;
+        zCon.player2 = PlayerTwo;
+        zCon.spawner = this;
+
+        float curChance = Random.Range(0.0f, 1.0f);
+        if (curChance <= weaponDropChance)
         {
-            Delay -= f;
+            zCon.drop = weaponDrops[Mathf.RoundToInt(Random.Range(0, weaponDrops.Count - 1))];
+        }
+        else if (curChance <= utilityDropChance)
+        {
+            if (Random.Range(0, 3) <= 0)
+            {
+                zCon.drop = medKitDrop;
+                zCon.drop.GetComponent<PickUpScript>().Value = Random.Range(30, 75);
+            }
+            else
+            {
+                zCon.drop = ammoDrop;
+                zCon.drop.GetComponent<PickUpScript>().Value = Random.Range(10, 40);
+            }
+
         }
     }
-    // Update is called once per frame
     void Update()
     {
         if (currentZombies.Count < maxZombies)
         {
-            if (currentSpawnLocationIndex < SpawnLocations.Length)
+            if ( zombiesThisRound < baseZombiesPerRound * roundCounter)
             {
-                if (timeSinceSpawn <= 0)
-                { 
-                    GameObject zomb = Instantiate(Zombie, SpawnLocations[currentSpawnLocationIndex].position, SpawnLocations[currentSpawnLocationIndex].rotation);
-                    currentZombies.Add(zomb);
-                    ZombieControl zCon = zomb.GetComponent<ZombieControl>();
-                    zCon.player1 = PlayerOne;
-                    zCon.player2 = PlayerTwo;
-                    zCon.spawner = this;
-                    float curChance = Random.Range(0.0f, 1.0f);
-                    if (curChance <= weaponDropChance)
-                    {
-                        zCon.drop = weaponDrops[Mathf.RoundToInt(Random.Range(0, weaponDrops.Count - 1))];
-                    }
-                    else if (curChance <= utilityDropChance)
-                    {
-                        if (Random.Range(0, 3) <= 0)
-                        {
-                            zCon.drop = medKitDrop;
-                            zCon.drop.GetComponent<PickUpScript>().Value = Random.Range(30,75);
-                        }
-                        else
-                        {
-                            zCon.drop = ammoDrop;
-                            zCon.drop.GetComponent<PickUpScript>().Value = Random.Range(10,40);
-                        }
+                if (currentSpawnLocationIndex < SpawnLocations.Length)
+                {
 
-                    }
-                    currentSpawnLocationIndex += 1;
-                    timeSinceSpawn = Delay;
+                    if (timeSinceSpawn <= 0)
+                    {
 
+                        SpawnZombie();
+                        currentSpawnLocationIndex += 1;
+                        timeSinceSpawn = delay;
+                        zombiesThisRound++;
+                    }
                 }
-
+                else
+                {
+                    currentSpawnLocationIndex = 0;
+                }
             }
-            else
+            else if (currentZombies.Count == 0)
             {
-                currentSpawnLocationIndex = 0;
+                PlayerOne.GetComponent<Stats>().Revive();
+                PlayerTwo.GetComponent<Stats>().Revive();
+                roundCounter += 1;
+                zombiesThisRound = 0;
+                timeSinceSpawn = roundDelay;
             }
+
+                    
+            timeSinceSpawn -= Time.deltaTime;
         }
-        timeSinceSpawn -= Time.deltaTime;
-        
     }
 }
