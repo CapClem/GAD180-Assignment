@@ -79,29 +79,51 @@ public class UIManager : MonoBehaviour
         {
             if (playerLObject.GetComponent<Stats>().rangedWeaponSlot != null)
             {
-                if (playerLObject.GetComponent<Stats>().rangedWeaponSlot.GetComponent<RangedWeapon>().ammoType == AmmoType.pistol)
+                switch (playerLObject.GetComponent<Stats>().rangedWeaponSlot.GetComponent<RangedWeapon>().ammoType)
                 {
-                    pLAmmo.text = playerLObject.GetComponent<Stats>().rangedWeaponSlot.GetComponent<RangedWeapon>().ammo.ToString()+"/" + playerLObject.GetComponent<Stats>().pistolAmmo.ToString();
+                    case AmmoType.pistol:
+                        pLAmmo.text = playerLObject.GetComponent<Stats>().rangedWeaponSlot.GetComponent<RangedWeapon>().ammo.ToString() + "/" + playerLObject.GetComponent<Stats>().pistolAmmo.ToString();
+                        break;
+                    case AmmoType.SMG:
+                        pLAmmo.text = playerLObject.GetComponent<Stats>().rangedWeaponSlot.GetComponent<RangedWeapon>().ammo.ToString() + "/" + playerLObject.GetComponent<Stats>().smgAmmo.ToString();
+                        break;
+                    case AmmoType.shotgun:
+                        pLAmmo.text = playerLObject.GetComponent<Stats>().rangedWeaponSlot.GetComponent<RangedWeapon>().ammo.ToString() + "/" + playerLObject.GetComponent<Stats>().shotgunAmmo.ToString();
+                        break;
+                    case AmmoType.rifle:
+                        pLAmmo.text = playerLObject.GetComponent<Stats>().rangedWeaponSlot.GetComponent<RangedWeapon>().ammo.ToString() + "/" + playerLObject.GetComponent<Stats>().rifleAmmo.ToString();
+                        break;
+                    case AmmoType.assaultRifle:
+                        pLAmmo.text = playerLObject.GetComponent<Stats>().rangedWeaponSlot.GetComponent<RangedWeapon>().ammo.ToString() + "/" + playerLObject.GetComponent<Stats>().assaultRifleAmmo.ToString();
+                        break;
                 }
-                if (playerLObject.GetComponent<Stats>().rangedWeaponSlot.GetComponent<RangedWeapon>().ammoType == AmmoType.shotgun)
-                {
-                    pLAmmo.text = playerLObject.GetComponent<Stats>().rangedWeaponSlot.GetComponent<RangedWeapon>().ammo.ToString() + "/" + playerLObject.GetComponent<Stats>().shotgunAmmo.ToString();
-                }
-
             }
         }
         if (playerRObject != null)
         {
             if (playerRObject.GetComponent<Stats>().rangedWeaponSlot != null)
             {
-                if (playerRObject.GetComponent<Stats>().rangedWeaponSlot.GetComponent<RangedWeapon>().ammoType == AmmoType.pistol)
+                switch (playerRObject.GetComponent<Stats>().rangedWeaponSlot.GetComponent<RangedWeapon>().ammoType)
+
                 {
-                    pRAmmo.text = playerRObject.GetComponent<Stats>().rangedWeaponSlot.GetComponent<RangedWeapon>().ammo.ToString() + "/" + playerRObject.GetComponent<Stats>().pistolAmmo.ToString();
+                    case AmmoType.pistol:
+                        pRAmmo.text = playerRObject.GetComponent<Stats>().rangedWeaponSlot.GetComponent<RangedWeapon>().ammo.ToString() + "/" + playerRObject.GetComponent<Stats>().pistolAmmo.ToString();
+                        break;
+                    case AmmoType.SMG:
+                        pRAmmo.text = playerRObject.GetComponent<Stats>().rangedWeaponSlot.GetComponent<RangedWeapon>().ammo.ToString() + "/" + playerRObject.GetComponent<Stats>().smgAmmo.ToString();
+                        break;
+                    case AmmoType.shotgun:
+                        pRAmmo.text = playerRObject.GetComponent<Stats>().rangedWeaponSlot.GetComponent<RangedWeapon>().ammo.ToString() + "/" + playerRObject.GetComponent<Stats>().shotgunAmmo.ToString();
+                        break;
+                    case AmmoType.rifle:
+                        pRAmmo.text = playerRObject.GetComponent<Stats>().rangedWeaponSlot.GetComponent<RangedWeapon>().ammo.ToString() + "/" + playerRObject.GetComponent<Stats>().rifleAmmo.ToString();
+                        break;
+                    case AmmoType.assaultRifle:
+                        pRAmmo.text = playerRObject.GetComponent<Stats>().rangedWeaponSlot.GetComponent<RangedWeapon>().ammo.ToString() + "/" + playerRObject.GetComponent<Stats>().assaultRifleAmmo.ToString();
+                        break;
                 }
-                if (playerRObject.GetComponent<Stats>().rangedWeaponSlot.GetComponent<RangedWeapon>().ammoType == AmmoType.shotgun)
-                {
-                    pRAmmo.text = playerRObject.GetComponent<Stats>().rangedWeaponSlot.GetComponent<RangedWeapon>().ammo.ToString() + "/" + playerRObject.GetComponent<Stats>().shotgunAmmo.ToString();
-                }
+
+                    
             }
         }
     }

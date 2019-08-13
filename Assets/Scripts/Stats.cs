@@ -12,9 +12,8 @@ public class Stats : MonoBehaviour
     public float speed = 5;
     public float damageReduction = 0.5f;
     public float reviveSpeed = 2;
-    public int shotgunAmmo;
-    public int pistolAmmo;
-    public int rifleAmmo;
+    public int shotgunAmmo, pistolAmmo, rifleAmmo, smgAmmo, assaultRifleAmmo;
+
     public GameObject meleWeaponSlot;
     public GameObject rangedWeaponSlot;
     public Transform equippedWeaponPos;
@@ -152,6 +151,16 @@ public class Stats : MonoBehaviour
             }
             x = true;
         }
+        if (smgAmmo < 400)
+        {
+            smgAmmo += ammount * 50;
+            if (smgAmmo > 400)
+            {
+                smgAmmo = 400;
+            }
+            x = true;
+        }
+
         return x;
    }
 

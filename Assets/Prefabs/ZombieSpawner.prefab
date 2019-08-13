@@ -122,9 +122,26 @@ MonoBehaviour:
   - {fileID: 1699156992698491753}
   - {fileID: 1699156993538398505}
   currentSpawnLocationIndex: 0
-  Delay: 5
+  delay: 2
+  roundDelay: 0
   maxZombies: 10
-  CurrentZombies: []
+  currentZombies: []
+  weaponDrops:
+  - {fileID: 2030459996436392192, guid: aa19033dd9d94be42956239422e7a252, type: 3}
+  - {fileID: 1997649337230076427, guid: f96511a5021fdc540b8da5f179e6549d, type: 3}
+  - {fileID: 2488566506452088998, guid: 2789193772a24dd4faad2b2e4d313a26, type: 3}
+  - {fileID: 6428111476504821690, guid: 67b8773111f9f2f45ba7f06494e16b3a, type: 3}
+  - {fileID: 6986752646811235065, guid: 9f295f430b4eda349814e48e74889d3f, type: 3}
+  - {fileID: 1492202232872135824, guid: 309f74e13b56ee24dbab86ccf04fb916, type: 3}
+  medKitDrop: {fileID: 4878434948093163351, guid: bc4847ca8f6d5df4b93eb58dc904abad,
+    type: 3}
+  ammoDrop: {fileID: 5764895234554435704, guid: af9f2b1b10d82ce46b6692e692a5beb5,
+    type: 3}
+  weaponDropChance: 0.05
+  utilityDropChance: 0.3
+  roundCounter: 1
+  baseZombiesPerRound: 0
+  zombiesThisRound: 0
 --- !u!1 &1699156992785090577
 GameObject:
   m_ObjectHideFlags: 0

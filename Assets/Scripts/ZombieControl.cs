@@ -75,7 +75,7 @@ public class ZombieControl : MonoBehaviour
 
 
 
-            if (Vector3.Distance(transform.position, target.transform.position) <= 1.8f || Vector3.Distance(transform.position + new Vector3(0,2,0), target.transform.position) <= 1.8f)
+            if (Vector3.Distance(transform.position, target.transform.position) <= 1.8f || Vector3.Distance(transform.position + new Vector3(0,4,0), target.transform.position) <= 1.8f)
                 {
                     agent.isStopped = true;
                     LookAt(target.transform);
